@@ -10,7 +10,7 @@ const Footer = () => {
           <div className="footer-links">
             <div style={{ display: 'flex', alignItems: 'center',gap:'190px' }}>
               <ImageUpload />
-              <a href="https://www.example-social.com" target="_blank" rel="noopener noreferrer">
+              <a href="https://imagesocialclient.vercel.app" target="_blank" rel="noopener noreferrer">
                 {/* Insert your second icon or image here */}
                 🔔
               </a>
