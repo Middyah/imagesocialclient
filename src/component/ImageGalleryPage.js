@@ -30,20 +30,10 @@ const ImageGalleryPage = () => {
       let res = await apiUrl.get(
         `/api/userpost/getallpost?page=${page}&limit=7&category=${category === null ? '' : category}&post_title=${postTitle === null ? '' : postTitle}`
       );
-
-      // Filter images with square format and set height and width to 600x600px
-      const squareImages = res.data.posts.filter((item) => item.width === item.height);
-      const processedImages = squareImages.map((item) => ({
-        ...item,
-        width: 600,
-        height: 600,
-      }));
-
-      setImages((prevData) => [...prevData, ...processedImages]);
-      setIsLoading(processedImages.length > 0);
-
+      setImages((prevData) => [...prevData, ...res.data.posts]);
+      setIsLoading(res.data.posts.length > 0);
       // Initialize like counts for newly loaded posts
-      const newLikeCounts = processedImages.reduce((acc, post) => {
+      const newLikeCounts = res.data.posts.reduce((acc, post) => {
         acc[post._id] = 0;
         return acc;
       }, {});
@@ -104,13 +94,13 @@ const ImageGalleryPage = () => {
                 <Card.Img
                   variant="top"
                   src="placeholder-url"
-                  style={{ height: '600px', width: '600px', backgroundColor: 'gray' }}
+                  style={{ height: '199px', backgroundColor: 'gray' }}
                 />
               )}
               <Card.Img
                 variant="top"
                 src={`${process.env.REACT_APP_API_URL}/api/userpost/images/${item._id}`}
-                style={{ backgroundColor: imageLoaded ? 'gray' : 'red', height: '600px', width: '600px' }}
+                style={{ backgroundColor: imageLoaded ? 'gray' : 'red' }}
                 onLoad={handleImageLoad}
               />
               <Card.Body>
