@@ -61,6 +61,11 @@ const ImageGalleryPage = () => {
     // You can also send a request to update the server with the like count
   };
 
+  const handleShareClick = (postId) => {
+    // Handle share action, e.g., open a modal, show a share dialog, etc.
+    console.log('Share button clicked for post:', postId);
+  };
+
   console.log(images, page, 'hhh', imageLoaded);
 
   return (
@@ -99,10 +104,15 @@ const ImageGalleryPage = () => {
                 onLoad={handleImageLoad}
               />
               <Card.Body>
+                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                  <Button variant="primary" onClick={() => handleLikeClick(item._id)}>
+                    Like <span>{likeCounts[item._id]}</span>
+                  </Button>
+                  <Button variant="secondary" onClick={() => handleShareClick(item._id)}>
+                    Share
+                  </Button>
+                </div>
                 <h5 className="card-title">{item.post_title}</h5>
-                <Button variant="primary" onClick={() => handleLikeClick(item._id)}>
-                  Like <span>{likeCounts[item._id]}</span>
-                </Button>
               </Card.Body>
             </Card>
           ))}
