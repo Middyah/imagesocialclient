@@ -1,0 +1,21 @@
+.navbar {
+  background-color: #ffffff;
+  color: #fff;
+  padding: 10px;
+}
+
+.navbar-content {
+  display: flex;
+  align-items: flex-end;
+  max-width: 100%;
+  margin: 0 ;
+}
+
+.icon-placeholder {
+  /* Add styles for the icon placeholder */
+  color: #fff;
+  font-size: 20px;
+  margin-right: 10px; /* Add some spacing to the right of the icon */
+}
+
+/* Add additional styles as needed */
