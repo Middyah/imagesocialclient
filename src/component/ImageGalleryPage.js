@@ -89,7 +89,7 @@ const ImageGalleryPage = () => {
         >
           {images.length === 0 && <div>No Data Found</div>}
           {images.map((item) => (
-            <Card key={item._id} style={{ width: '36rem', marginBottom: '12px' }}>
+            <Card key={item._id} style={{ width: '30rem', marginBottom: '12px' }}>
               {!imageLoaded && (
                 <Card.Img
                   variant="top"
