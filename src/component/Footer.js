@@ -12,7 +12,7 @@ const Footer = () => {
               <ImageUpload />
               <a href="https://www.example-social.com" target="_blank" rel="noopener noreferrer">
                 {/* Insert your second icon or image here */}
-                🔔
+                🔍
               </a>
             </div>
           </div>
