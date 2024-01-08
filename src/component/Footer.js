@@ -10,10 +10,7 @@ const Footer = () => {
           <div className="footer-links">
             <div style={{ display: 'flex', alignItems: 'center',gap:'190px' }}>
               <ImageUpload />
-              <a href="https://www.example-social.com" target="_blank" rel="noopener noreferrer">
-                {/* Insert your second icon or image here */}
-                🔍
-              </a>
+              <Link to="./" className="page-link">🔍</Link>
             </div>
           </div>
         </div>
