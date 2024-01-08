@@ -1,0 +1,28 @@
+/* LocationDropdown.css */
+.location-dropdown-container {
+    width: 100%;
+    text-align: left;
+    margin-top: 20px;
+    margin-right: 20px;
+  }
+  
+  .dropdown-label {
+    font-size: 16px;
+    margin-right: 10px;
+  }
+  
+  .dropdown-select {
+    padding: 10px;
+    font-size: 18px;
+    border: 1px solid #ccc;
+    border-radius: 25px; /* Add border-radius */
+  }
+  
+  .selected-location {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #555;
+  }
+  
+  /* Add additional styles as needed */
+ 
