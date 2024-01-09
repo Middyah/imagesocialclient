@@ -1,6 +1,6 @@
 import React from 'react';
 import '../component/css/Footer.css'; // Import your CSS file for Footer styling
-import ImageUpload from './ImageUpload';
+import ImageUpload from './Imageupload';
 import {Link}  from 'react-router-dom';
 
 const Footer = () => {
@@ -9,7 +9,7 @@ const Footer = () => {
       <div className="footer-content">
         <div className="center-container">
           <div className="footer-links">
-            <div style={{ display: 'flex', alignItems: 'center',gap:'190px' }}>
+            <div className='footerele'>
               <ImageUpload />
               <Link to='./'>🔍</Link>
             </div>

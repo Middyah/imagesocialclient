@@ -49,7 +49,7 @@ export default () => {
   };
   
   return (
-    <div style={{ padding: `0 ${chevronWidth}px`, width: '62%',  }}>
+    <div style={{ padding: `0 ${chevronWidth}px`,  }} className='carousel'>
       <ItemsCarousel
         requestToChangeActive={setActiveItemIndex}
         activeItemIndex={activeItemIndex}
@@ -63,11 +63,12 @@ export default () => {
       >
         {options.map((item, index) => (
           <div
+          className='carouselitem'
             key={index}
-            style={cardStyle}
-            onClick={() => navigate(`/mainarea?category=${item}`)}
+            // style={cardStyle}
+            onClick={() => navigate(`/mainarea?category=${index}`)}
           >
-            {item}
+            <div className='itemitem'>{item}</div>
           </div>
         ))}
       </ItemsCarousel>

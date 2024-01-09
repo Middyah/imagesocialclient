@@ -27,7 +27,7 @@ const LocationDropdown = () => {
       </label>
       <select id="country" value={selectedCountry} onChange={handleCountryChange} className="dropdown-select">
         {countries.map((country, index) => (
-          <option key={index} value={country}>
+          <option key={index} value={index}>
             {country}
           </option>
         ))}

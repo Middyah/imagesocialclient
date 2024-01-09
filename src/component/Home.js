@@ -28,13 +28,8 @@ const Searchbar = () => {
             type="text"
             name="q"
             placeholder="Search here"
-            style={{
-              width: '60%',
-              padding: '12px',
-              fontSize: '16px',
-              borderRadius: '25px',
-              border: '1px solid #ccc',
-            }}
+            className='searchinput'
+           
             onChange={(e) => setTitle(e.target.value)}
             onKeyDown={(e) => handleSearch(e)}
           />

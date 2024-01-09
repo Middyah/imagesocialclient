@@ -30,4 +30,19 @@
     text-decoration: none;
   }
   
+  .footerele{
+    display: flex;
+    align-items: center;
+    gap: 190px;
+  }
+  @media screen and (max-width: 480px) {
   
+    .footerele{
+      display: flex;
+      align-items: center;
+      gap: 100px;
+    }
+    .center-container{
+      padding-left: 102px;
+    }
+  }
