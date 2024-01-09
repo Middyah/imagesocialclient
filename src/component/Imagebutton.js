@@ -49,6 +49,9 @@ const [data,setData]=useState({})
         console.error('Error sharing:', error);
       }
     };
+    const Call=()=>{
+        window.open(`tel:${Contact}`)
+    }
   return (
     <>
     <div className='allicons'>
@@ -59,7 +62,7 @@ const [data,setData]=useState({})
         )}
       
       {Contact &&( 
-        <img src={call} style={{width:"29px",margin:"24px"}} onClick={window.open(`tel:${Contact}`)}/>
+        <img src={call} style={{width:"29px",margin:"24px"}} onClick={()=>Call()}/>
       )} 
       
       <img src={share} style={{width:"29px",margin:"24px"}} onClick={handleShare}/>
