@@ -5,8 +5,8 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import apiUrl from '../ApiAxios';
 import { useNavigate } from 'react-router-dom';
 
-const ImageUpload = ({ onUpload, title, uploadreff, setuploadreff, selectedCategory, setShowModal,selectedLocation,
-  Contact }) => {
+const ImageUpload = ({ onUpload, title, uploadreff, setuploadreff, selectedCategory, setShowModal, selectedLocation,
+  Contact,Link, Productname }) => {
   const navigate = useNavigate();
   const [selectedFile, setSelectedFile] = useState(null);
   const [base64Image, setBase64Image] = useState('');
@@ -52,7 +52,9 @@ const ImageUpload = ({ onUpload, title, uploadreff, setuploadreff, selectedCateg
       formData.append('post_title', title);
       formData.append('category', selectedCategory);
       formData.append('location', selectedLocation);
+      formData.append('Link', Link);
       formData.append('Contactnumber', Contact);
+      formData.append('Productname', Productname);
       try {
         await apiUrl.post('/api/userpost/newupload', formData, {
           headers: {
@@ -132,6 +134,8 @@ const Upload = () => {
   const [selectedCategory, setselectedCategory] = useState('');
   const [selectedLocation, setselectedLocation] = useState('');
   const [Contact, setContact] = useState('');
+  const [Link, setLink] = useState('');
+  const [Productname, setProductname] = useState('');
 
   const handleCategoryChange = (event) => {
     setselectedCategory(event.target.value);
@@ -215,7 +219,27 @@ const Upload = () => {
                 setShowModal={setShowModal}
                 selectedLocation={selectedLocation}
                 Contact={Contact}
+                Link={Link}
+                Productname={Productname}
               />
+              <div className='twoinput'>
+                <input
+                  type="text"
+                  placeholder="Product Name"
+                  value={Productname}
+                  onChange={(e) => setProductname(e.target.value)}
+                  style={{ marginLeft: '11px', marginBottom: "10px", marginTop: "5px" }}
+                  className='inputtext'
+                />
+                <input
+                  type="text"
+                  placeholder="Product Link"
+                  value={Link}
+                  onChange={(e) => setLink(e.target.value)}
+                  style={{ marginLeft: '11px' }}
+                  className='inputtext'
+                />
+              </div>
               <div style={{ justifyContent: "center", alignItems: "center", textAlign: "center", paddingTop: "79px" }}>
                 <Button onClick={uploadImage} >
                   Upload

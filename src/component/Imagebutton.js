@@ -8,10 +8,15 @@ export default function Imagebutton({id,Contact}) {
     let likeuserid=localStorage.getItem("likeuserid")
     const[reff,setReff]=useState("")
 const [data,setData]=useState({})
+const[userlike,setUserLike]=useState(false)
+const[totallike,settotallike]=useState(0)
+console.log(userlike,totallike,data);
     const fetchLike = async () => {
         try {
           let res = await apiUrl.get(  `/api/admin/post/likecount/${id}/?user_id=${likeuserid?likeuserid:""}`)
           setData(res.data)
+          setUserLike(res.data.user_like)
+          settotallike(res.data.like)
         } catch (err) {
           console.log(err);
         }
@@ -25,6 +30,8 @@ const [data,setData]=useState({})
         }
       },[likeuserid])
     const postLike = async () => {
+      setUserLike(true)
+      settotallike(totallike+1)
         try {
           let res = await apiUrl.post( `/api/admin/post/like/${id}`,json)
           if(res){
@@ -42,7 +49,7 @@ const [data,setData]=useState({})
       try {
         await navigator.share({
           title: 'Shared Title',
-          url: window.location.hostname,
+          url:"https://imagesocialclient.vercel.app/mainarea?category=0",
         });
         console.log('Shared successfully');
       } catch (error) {
@@ -55,10 +62,10 @@ const [data,setData]=useState({})
   return (
     <>
     <div className='allicons'>
-        {data.user_like ?(
-<span><img src={likeimg} style={{width:"29px",margin:"24px"}}/>  <span>{data.like}</span></span>
+        {userlike ?(
+<span><img src={likeimg} style={{width:"29px",margin:"24px"}}/>  <span>{totallike}</span></span>
         ):(
-            <span onClick={postLike}><img src={dislike} style={{width:"29px",margin:"24px"}}/>  <span>{data.like}</span></span>  
+            <span onClick={postLike}><img src={dislike} style={{width:"29px",margin:"24px"}}/>  <span>{totallike}</span></span>  
         )}
       
       {Contact &&( 

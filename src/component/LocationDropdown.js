@@ -6,6 +6,7 @@ const LocationDropdown = () => {
 
   const handleCountryChange = (e) => {
     setSelectedCountry(e.target.value);
+    localStorage.setItem("location",e.target.value)
     // You can perform actions based on the selected country here
     console.log('Selected Country:', e.target.value);
   };

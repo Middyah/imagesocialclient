@@ -22,9 +22,10 @@ console.log(post_title,category,"jfghfghg");
 
   };
 let reff= localStorage.getItem("reff")
+let location=localStorage.getItem("location")
   const fetchImages = async () => {
     try {
-      let res = await apiUrl.get(`/api/userpost/getallpost?page=${page}&limit=7&category=${category===null?"":category}&post_title=${post_title===null?"":post_title}`)
+      let res = await apiUrl.get(`/api/userpost/getallpost?page=${page}&limit=7&category=${category===null?"":category}&post_title=${post_title===null?"":post_title}&location=${location!==null?location:""}`)
       setImages((prevData) => [...images, ...res.data.posts])
       setIsLoading(res.data.posts)
     } catch (err) {

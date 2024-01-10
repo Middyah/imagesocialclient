@@ -12,7 +12,7 @@ const PopupPage = () => {
 
   return (
     <div className="location-dropdown-container">
-      <label htmlFor="country" className="dropdown-label" onClick={handleArrowClick} style={{ fontSize: '55px', cursor: 'pointer' }}>
+      <label htmlFor="country" className="dropdown-label" onClick={handleArrowClick} style={{ fontSize: '40px', cursor: 'pointer' }}>
         𓃑
       </label>
       {isBoxVisible && selectedCountry !== '𓃑' && (

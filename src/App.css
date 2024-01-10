@@ -49,6 +49,7 @@
     color: white;
     background-color: grey;
     font-size: medium;
+    width: 200px !important;
   }
 
   ::placeholder {
@@ -68,7 +69,7 @@
     border-left-width: 0px;
 }
 .modal-content {
-  width: 845px !important;
+  width: 894px !important
 }
 
 .fade.modal.show{
@@ -87,16 +88,19 @@
 
 }
 .modelbody{
-background-color:#00000071 ;
-width: 827px;
-height: 247px;
+  background-color: #00000071;
+  width: 892px;
+  height: 445px;
 }
+.twoinput{    display: flex;
+  flex-direction: column;
+  max-width: 237px;}
 @media screen and (max-width: 480px) {
   
   .modelbody {
     background-color: #00000071;
     width: 343px;
-    height: 530px;
+    height: 649px;
     /* padding-right: 143px; */
     margin-left: 0px;
 }
@@ -108,7 +112,7 @@ height: 247px;
   background-color: grey;
   font-size: medium;
   margin-bottom: 6px;
-  width: 200px;
+  width: 200px !important;
 }
 .inputtext {
   border-radius: 20px;
