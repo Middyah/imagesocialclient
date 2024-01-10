@@ -132,7 +132,7 @@
 }
 .carouselitem {
   background: #ffffff !important;
-  width: 49px !important;
+  width: 73px !important;
   height: 39px !important;
   display: flex !important;
   align-items: center !important;
@@ -140,18 +140,16 @@
   cursor: pointer !important;
   border: 1px solid #ccc !important;
   border-radius: 14px !important;
-  font-size: 9px !important;
+  font-size: 13px !important;
   /* margin-right: 60px !important; */
-}
-.carousetitem {
-  /* margin: 20px !important; */
   align-items: center !important;
   justify-content: center !important;
   display: flex !important;
   margin-top: 20px !important;
   /* margin-right: -107px !important; */
   /* width: 375px !important; */
-  margin-left: -4px !important;
+  margin-left: -1px !important;
+  font-weight: 600;
 }
 .searchinput{width: 92% !important;
   padding: 12px !important;

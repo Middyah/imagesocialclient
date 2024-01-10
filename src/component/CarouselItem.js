@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ItemsCarousel from 'react-items-carousel';
 import { useNavigate } from 'react-router-dom';
 
@@ -47,13 +47,29 @@ export default () => {
     marginLeft: '5px',
     marginRight: '5px',
   };
-  
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768); // Adjust the breakpoint as needed
+    };
+
+    // Initial check and add event listener
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
+    // Clean up the event listener
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [])
+  console.log(isMobile,"isMobile");
   return (
     <div style={{ padding: `0 ${chevronWidth}px`,  }} className='carousel'>
       <ItemsCarousel
         requestToChangeActive={setActiveItemIndex}
         activeItemIndex={activeItemIndex}
-        numberOfCards={5}
+        numberOfCards={isMobile?3:5}
         gutter={10}
         leftChevron={<button style={navButtonStyle}>{'<'}</button>}
         rightChevron={<button style={navButtonStyle}>{'>'}</button>}
