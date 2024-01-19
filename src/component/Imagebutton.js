@@ -63,9 +63,9 @@ console.log(userlike,totallike,data);
     <>
     <div className='allicons'>
         {userlike ?(
-<span><img src={likeimg} style={{width:"29px",margin:"24px"}}/>  <span>{totallike}</span></span>
+<span><img src={likeimg} style={{width:"29px",margin:"24px"}}/>  <span>{totallike===0?"":totallike}</span></span>
         ):(
-            <span onClick={postLike}><img src={dislike} style={{width:"29px",margin:"24px"}}/>  <span>{totallike}</span></span>  
+            <span onClick={postLike}><img src={dislike} style={{width:"29px",margin:"24px"}}/>  <span>{totallike===0?"":totallike}</span></span>  
         )}
       
       {Contact &&( 

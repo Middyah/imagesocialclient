@@ -84,7 +84,7 @@
 .userimg{
   
   max-height: 200px;
-  object-fit: contain;
+  object-fit: cover;
 
 }
 .modelbody{
@@ -180,3 +180,10 @@
   font-size: 16px;
   border-radius: 25px;
   border: 1px solid rgb(204, 204, 204);}
+
+  .dropdown-container{
+    width: 203px !important;
+    margin-left: 34px;
+    border-bottom-width: 3px;
+    border-bottom-color: blue !important;
+  }
