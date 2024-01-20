@@ -21,7 +21,7 @@ useEffect(()=>{
     
     'United States',
     'United Kingdom',
-    'Canada',
+    'India',
     'Australia',
     'Pakistan',
     // Add more countries as needed

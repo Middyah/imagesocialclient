@@ -81,7 +81,7 @@ const ImageGalleryPage = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      Open
+                      Click here
                     </a>
                     // <a style={{width:"75%",marginLeft:"71px"}} href="www.google.com" target='_blank'>Open</a>
 

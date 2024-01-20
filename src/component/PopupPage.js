@@ -19,7 +19,11 @@ const PopupPage = () => {
         <div className="page-links-container">
           <div className="page-links-box">
             <Link to="/" className="page-link">Home</Link>
-            <Link to="./mainarea" className="page-link">Product Information</Link>
+            <Link to="/mainarea" className="page-link">Product Information</Link>
+            <Link to="/aboutus" className="page-link">About Us</Link> {/* Add this line for the About Us page */}
+            <Link to="/contactus" className="page-link">Contact Us</Link>
+            <Link to="/hiring" className="page-link">We are hiring</Link>
+            <Link to="/share" className="page-link">Share & Earn</Link>
             {/* Add more page links as needed */}
           </div>
         </div>
