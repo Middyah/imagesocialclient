@@ -126,7 +126,7 @@ const Upload = () => {
     'Select a country',
     'United States',
     'United Kingdom',
-    'Canada',
+    'India',
     'Australia',
     'Pakistan',
 
