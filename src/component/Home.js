@@ -9,13 +9,23 @@ const Searchbar = () => {
   const navigate = useNavigate();
   const [title, setTitle] = useState('');
 
-  const handleSearch = (e) => {
-    if (e.key === 'Enter') navigate(`/mainarea?post_title=${title}`);
+  // const handleSearch = (e) => {
+  //   if (e.key === 'Enter') navigate(`/mainarea?post_title=${title}`);
+  // };
+
+  const handleSearch = () => {
+    navigate(`/mainarea?post_title=${title}`);
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      handleSearch();
+    }
   };
 
   return (
     <div>
-    <Navbar />
+      <Navbar />
       <div style={{ textAlign: 'center', paddingTop: '100px' }}>
         <img
           className='logo_main'
@@ -29,10 +39,17 @@ const Searchbar = () => {
             name="q"
             placeholder="Search here"
             className='searchinput'
-           
+
             onChange={(e) => setTitle(e.target.value)}
-            onKeyDown={(e) => handleSearch(e)}
+            onKeyDown={(e) => handleKeyPress(e)}
           />
+           <button
+            type="button"
+            onClick={() => handleSearch()}
+            style={{ backgroundColor: 'blue', color: 'white' }}
+          >
+            Search
+          </button>
           <br />
         </form>
         <div className='carousetitem'>

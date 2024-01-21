@@ -4,6 +4,7 @@ import Card from 'react-bootstrap/Card';
 import apiUrl from '../ApiAxios';
 import InfiniteScroll from "react-infinite-scroll-component";
 import Imagebutton from './Imagebutton';
+import Navbar2 from './Navbar2'
 const ImageGalleryPage = () => {
   const searchParams = new URLSearchParams(document.location.search)
   let category = searchParams.get('category')
@@ -49,7 +50,9 @@ const ImageGalleryPage = () => {
   }
   console.log(images, page, "hhh", imageLoaded);
   return (
+   
     <div style={{ textAlign: "center" }}>
+       <Navbar2/>
       <h1>Post Page </h1>
 
 
