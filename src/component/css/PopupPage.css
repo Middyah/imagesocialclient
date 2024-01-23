@@ -1,0 +1,38 @@
+.location-dropdown-container {
+    position: relative;
+  }
+  
+  .page-links-container {
+    position: absolute;
+    top: 80px; /* Adjust the top distance according to your design */
+    left: -180px;
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow */
+    border-radius: 10px;
+    z-index: 1;
+    padding: 10px;
+  }
+  
+  .page-links-box {
+    padding: 18px;
+  }
+  
+  .page-link {
+    display: flex;
+    font-size: 20px;
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+    line-height: 3;
+    transition: background-color 0.3s ease;
+  }
+  
+  .page-link:hover {
+    background-color: #f0f0f0;
+  }
+  
+
+  /* background-color: rgba(0, 0, 0, 0.55);
+  width: 407px;
+  height: 410px; */

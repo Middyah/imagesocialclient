@@ -1,0 +1,19 @@
+.search-form {
+    display: flex;
+    align-items: center;
+  }
+
+  .logo_main{
+    height: 150px;
+  }
+  
+  .searchinput {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+  }
+  
+  .search-button {
+    padding:20px;
+  }
+  
