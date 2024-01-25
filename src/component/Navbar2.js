@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import '../component/css/Navbar2.css';
 import LocationDropdown from './LocationDropdown';
 import PopupPage from './PopupPage';
+import CarouselItems from './CarouselItems';  // Import CarouselItem component
 import logo from './image/logo.png';
 
 const Navbar = () => {
@@ -37,7 +38,7 @@ const Navbar = () => {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               onKeyDown={handleSearch}
-              style={{ marginRight: '-100px',width:'800px' }}
+              style={{ marginRight: '-100px', width: '800px' }}
             />
             <button
               type="button"
@@ -54,6 +55,9 @@ const Navbar = () => {
               Search
             </button>
           </div>
+
+          {/* Include the CarouselItem component here */}
+          <CarouselItems />
         </div>
 
         <div className="right-component">
