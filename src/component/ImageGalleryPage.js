@@ -1,15 +1,15 @@
+// ImageGalleryPage.js
 import React, { useState, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import apiUrl from '../ApiAxios';
-import InfiniteScroll from "react-infinite-scroll-component";
+import InfiniteScroll from 'react-infinite-scroll-component';
 import Imagebutton from './Imagebutton';
-import NavbarPost from './NavbarPost'
+import NavbarPost from './NavbarPost';
 import CustomNavbar from './CustomNavbar';
 
-
-
 const ImageGalleryPage = () => {
+  // ... (rest of the code remains unchanged)
   const searchParams = new URLSearchParams(document.location.search)
   let category = searchParams.get('category')
   let post_title = searchParams.get('post_title')
@@ -54,31 +54,29 @@ const ImageGalleryPage = () => {
   }
   console.log(images, page, "hhh", imageLoaded);
   return (
-   
-    <div style={{ textAlign: "center" }}>
-       {/* <NavbarPost/> */}
-       <CustomNavbar />
-      
+    <div style={{ textAlign: 'center' }}>
+      {/* <NavbarPost/> */}
+      <CustomNavbar />
 
-
-      <div style={{ textAlign: "center", display: "inline-block" }}>
+      <div style={{ textAlign: 'center', display: 'inline-block' }}>
         <InfiniteScroll
           dataLength={images.length}
           next={loadMore}
           hasMore={true}
-          loader={<>
-            {isLoading?.length !== 0 && (
-              <div class="spinner-grow text-danger" role="status">
-                <span class="sr-only"></span>
-              </div>
-            )}
-
-          </>}
-
+          loader={
+            <>
+              {isLoading?.length !== 0 && (
+                <div class="spinner-grow text-danger" role="status">
+                  <span class="sr-only"></span>
+                </div>
+              )}
+            </>
+          }
         >
           {images.length === 0 && <div>No Data Found</div>}
           {images.map((item) => (
-            <Card style={{ width: '18rem', marginBottom: "12px", marginBottom: "41px" }}>
+            <Card style={{ width: '18rem', marginBottom: '12px', marginBottom: '41px' }}>
+              {/* ... (rest of the card code remains unchanged) */}
               <Card.Text>
                 <div className='headtop' style={{ display: "flex" }}>
                   <h5 class="card-title" style={{ width: "26%" }}>{item.post_title}</h5>
@@ -112,10 +110,7 @@ const ImageGalleryPage = () => {
               </Card.Body>
             </Card>
           ))}
-
         </InfiniteScroll>
-
-
       </div>
     </div>
   );
