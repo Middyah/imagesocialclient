@@ -23,7 +23,7 @@ function App() {
         <Route path="/hiring" element={<Hiring />} /> {/* Add this line for the Hiring page */}
         <Route path="/share" element={<Share />} />
       </Routes>
-      {/* <Footer /> */}
+      <Footer /> 
     </div>
   );
 }
