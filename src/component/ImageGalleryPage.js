@@ -53,7 +53,7 @@ const ImageGalleryPage = () => {
    
     <div style={{ textAlign: "center" }}>
        <Navbar2/>
-      // <h1>Post Page </h1>
+      
 
 
       <div style={{ textAlign: "center", display: "inline-block" }}>
