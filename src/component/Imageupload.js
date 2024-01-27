@@ -4,13 +4,9 @@ import axios from 'axios';
 import Dropdown from 'react-bootstrap/Dropdown';
 import apiUrl from '../ApiAxios';
 import { useNavigate } from 'react-router-dom';
-import './css/ImageUpload.css';  // Import the CSS file
-import  icon from '../component/image/upload.png'
-// import Navbar2 from './Navbar2'
-
 
 const ImageUpload = ({ onUpload, title, uploadreff, setuploadreff, selectedCategory, setShowModal, selectedLocation,
-  Contact, Link, Productname }) => {
+  Contact,Link, Productname }) => {
   const navigate = useNavigate();
   const [selectedFile, setSelectedFile] = useState(null);
   const [base64Image, setBase64Image] = useState('');
@@ -88,19 +84,16 @@ const ImageUpload = ({ onUpload, title, uploadreff, setuploadreff, selectedCateg
 
   return (
     <div className="auth-wrapper">
-      <div className="auth-inner">
+      <div className="auth-inner" style={{ width: 'auto' }}>
         <p>Let's upload an image</p>
-        <label htmlFor="file-input" className="file-label">
-        <img src={base64Image || ('icon')} alt="Upload Icon" className='modelimage' />
-        <input id="file-input" accept="image/*" type="file" onChange={handleFileChange} style={{ display: 'none' }} />
-        </label>
+        <input accept="image/*" type="file" onChange={handleFileChange} />
 
-        {/* Commenting out old image preview */}
-        {/* {base64Image && <img src={base64Image} alt="Uploaded" className='modelimage-preview' />} */}
+        {base64Image && <img src={base64Image} alt="Uploaded" className='modelimage' />}
       </div>
     </div>
   );
 };
+
 const Upload = () => {
   const [showModal, setShowModal] = useState(false);
   const [title, setTitle] = useState('');
@@ -113,8 +106,8 @@ const Upload = () => {
   };
 
   const options = [
-    // 'All',
-    // "What's new",
+    'All',
+    "What's new",
     'Product',
     'Service',
     'Health',
@@ -133,14 +126,13 @@ const Upload = () => {
   //   'Select a country',
   //   'United States',
   //   'United Kingdom',
-  //   'Canada',
+  //   'India',
   //   'Australia',
   //   'Pakistan',
 
   // ];
 
   const countries = [
-    'Select a country',
     'Afghanistan',
     'Albania',
     'Algeria',

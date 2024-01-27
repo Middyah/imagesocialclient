@@ -5,6 +5,7 @@ import apiUrl from '../ApiAxios';
 import InfiniteScroll from "react-infinite-scroll-component";
 import Imagebutton from './Imagebutton';
 import NavbarPost from './NavbarPost'
+import CustomNavbar from './CustomNavbar';
 
 
 
@@ -55,7 +56,8 @@ const ImageGalleryPage = () => {
   return (
    
     <div style={{ textAlign: "center" }}>
-       <NavbarPost/>
+       {/* <NavbarPost/> */}
+       <CustomNavbar />
       
 
 
