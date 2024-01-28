@@ -1,0 +1,31 @@
+/* CustomNavbar.css */
+
+.custom-navbar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.custom-left-component {
+  width: 25%;
+  /* Add styling for individual components if needed */
+}
+
+/* Media query for smaller screens (e.g., phones) */
+@media (max-width: 600px) {
+  .custom-navbar-content {
+
+    flex-direction: row;
+     /* Center content in column layout */
+  }
+
+  .custom-right-component{
+    align-items: flex-end;
+  }
+  .custom-left-component,
+  .custom-right-component {
+    width: 100%; /* Make components take full width in column layout */
+    margin-bottom: 10px; /* Add some spacing between components */
+  }
+}
