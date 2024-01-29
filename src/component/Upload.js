@@ -115,6 +115,7 @@ const Upload = () => {
   const options = [
     // 'All',
     // "What's new",
+    'Select the Category',
     'Product',
     'Service',
     'Health',
