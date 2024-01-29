@@ -36,6 +36,9 @@
   justify-content: space-between;
  
 }
+.card-title{
+    text-align:left;
+}
 
 .card-custom {
   width: 27.15vw;
