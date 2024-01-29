@@ -34,7 +34,7 @@ const Searchbar = () => {
             type="text"
             name="q"
             placeholder="Search here"
-            className='searchinput'
+            className='searchfield'
             onChange={(e) => setTitle(e.target.value)}
             onKeyDown={(e) => handleKeyPress(e)}
           />
