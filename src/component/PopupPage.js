@@ -1,3 +1,5 @@
+// PopupPage.js
+
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../component/css/PopupPage.css';
@@ -12,7 +14,12 @@ const PopupPage = () => {
 
   return (
     <div className="location-dropdown-container">
-      <label htmlFor="country" className="dropdown-label" onClick={handleArrowClick} style={{ fontSize: '40px', cursor: 'pointer' }}>
+      <label
+        htmlFor="country"
+        className="dropdown-label"
+        onClick={handleArrowClick}
+        // style={{ fontSize: '4vw', cursor: 'pointer' }} // Use viewport width for responsive font size
+      >
         𓃑
       </label>
       {isBoxVisible && selectedCountry !== '𓃑' && (
@@ -20,11 +27,10 @@ const PopupPage = () => {
           <div className="page-links-box">
             <Link to="/" className="page-link">Home</Link>
             <Link to="/mainarea" className="page-link">Product Information</Link>
-            <Link to="/aboutus" className="page-link">About Us</Link> {/* Add this line for the About Us page */}
+            <Link to="/aboutus" className="page-link">About Us</Link>
             <Link to="/contactus" className="page-link">Contact Us</Link>
             <Link to="/hiring" className="page-link">We are hiring</Link>
             <Link to="/share" className="page-link">Share & Earn</Link>
-            {/* Add more page links as needed */}
           </div>
         </div>
       )}
