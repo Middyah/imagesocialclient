@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import ItemsCarousel from 'react-items-carousel';
 import { useNavigate } from 'react-router-dom';
 
+
+
 export default () => {
   const navigate = useNavigate();
   const [activeItemIndex, setActiveItemIndex] = useState(0);
@@ -47,6 +49,7 @@ export default () => {
     marginLeft: '5px',
     marginRight: '5px',
   };
+
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -63,13 +66,20 @@ export default () => {
       window.removeEventListener('resize', handleResize);
     };
   }, [])
-  console.log(isMobile,"isMobile");
+
+  const handleCategoryClick = (category) => {
+    // Navigate to the appropriate URL based on the selected category
+    // navigate(`/mainarea?category=${category}`);
+    const selectedCategory = category === "All" ? 0 : category;
+  navigate(`/mainarea?category=${selectedCategory}`);
+  };
+
   return (
     <div style={{ padding: `0 ${chevronWidth}px`,  }} className='carousel'>
       <ItemsCarousel
         requestToChangeActive={setActiveItemIndex}
         activeItemIndex={activeItemIndex}
-        numberOfCards={isMobile?3:5}
+        numberOfCards={isMobile ? 3 : 5}
         gutter={10}
         leftChevron={<button style={navButtonStyle}>{'<'}</button>}
         rightChevron={<button style={navButtonStyle}>{'>'}</button>}
@@ -79,10 +89,9 @@ export default () => {
       >
         {options.map((item, index) => (
           <div
-          className='carouselitem'
+            className='carouselitem'
             key={index}
-            // style={cardStyle}
-            onClick={() => navigate(`/mainarea?category=${index}`)}
+            onClick={() => handleCategoryClick(item)}
           >
             <div className='itemitem'>{item}</div>
           </div>
@@ -91,3 +100,4 @@ export default () => {
     </div>
   );
 };
+

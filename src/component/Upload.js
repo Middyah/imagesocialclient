@@ -5,7 +5,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import apiUrl from '../ApiAxios';
 import { useNavigate } from 'react-router-dom';
 import './css/ImageUpload.css';  // Import the CSS file
-import  icon from '../component/image/upload.png'
+import icon from '../component/image/upload.png'
 // import Navbar2 from './Navbar2'
 
 
@@ -91,8 +91,8 @@ const ImageUpload = ({ onUpload, title, uploadreff, setuploadreff, selectedCateg
       <div className="auth-inner">
         <p>Let's upload an image</p>
         <label htmlFor="file-input" className="file-label">
-        <img src={base64Image || ('icon')} alt="Upload Icon" className='modelimage' />
-        <input id="file-input" accept="image/*" type="file" onChange={handleFileChange} style={{ display: 'none' }} />
+          <img src={base64Image || ('icon')} alt="Upload Icon" className='modelimage' />
+          <input id="file-input" accept="image/*" type="file" onChange={handleFileChange} style={{ display: 'none' }} />
         </label>
 
         {/* Commenting out old image preview */}
@@ -112,23 +112,40 @@ const Upload = () => {
     console.log('Uploaded image in base64:', base64Image);
   };
 
+  // const options = [
+  //   // 'All',
+  //   // "What's new",
+  //   'Select the Category',
+  //   'Product',
+  //   'Service',
+  //   'Health',
+  //   'Education',
+  //   'Job',
+  //   'Lifestyle',
+  //   'Entertainment',
+  //   'Technology',
+  //   'Finance',
+  //   'Sports',
+  //   'Real Estate',
+  //   'Others',
+  //   'Website Activity',
+  // ];
+
   const options = [
-    // 'All',
-    // "What's new",
-    'Select the Category',
-    'Product',
-    'Service',
-    'Health',
-    'Education',
-    'Job',
-    'Lifestyle',
-    'Entertainment',
-    'Technology',
-    'Finance',
-    'Sports',
-    'Real Estate',
-    'Others',
-    'Website Activity',
+    { value: 'Select the Category', label: 'Select the Category' },
+    { value: 'Product', label: 'Product' },
+    { value: 'Service', label: 'Service' },
+    { value: 'Health', label: 'Health' },
+    { value: 'Education', label: 'Education' },
+    { value: 'Job', label: 'Job' },
+    { value: 'Lifestyle', label: 'Lifestyle' },
+    { value: 'Entertainment', label: 'Entertainment' },
+    { value: 'Technology', label: 'Technology' },
+    { value: 'Finance', label: 'Finance' },
+    { value: 'Sports', label: 'Sports' },
+    { value: 'Real Estate', label: 'Real Estate' },
+    { value: 'Others', label: 'Others' },
+    { value: 'Website Activity', label: 'Website Activity' },
   ];
   // const countries = [
   //   'Select a country',
@@ -396,13 +413,28 @@ const Upload = () => {
                     </option>
                   ))}
                 </select>
-                <select name="category" id="category" value={selectedCategory} onChange={handleCategoryChange} className='input' style={{ marginLeft: '11px' }}>
+                {/* <select name="category" id="category" value={selectedCategory} onChange={handleCategoryChange} className='input' style={{ marginLeft: '11px' }}>
                   {options.map((option, index) => (
                     <option key={index} value={index}>
                       {option}
                     </option>
                   ))}
+                </select> */}
+                <select
+                  name="category"
+                  id="category"
+                  value={selectedCategory}
+                  onChange={handleCategoryChange}
+                  className='input'
+                  style={{ marginLeft: '11px' }}
+                >
+                  {options.map((option) => (
+                    <option key={option.value} value={option.value}>
+                      {option.label}
+                    </option>
+                  ))}
                 </select>
+
                 <>
 
                   <input
