@@ -1,25 +1,37 @@
+/* Your existing CSS */
+
 .search-form {
-    display: flex;
-    align-items: center;
-  }
+  display: flex;
+  align-items: center;
+}
 
-  .logo_main{
-    height: 150px;
-  }
-  
-  .searchinput {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 25px;
-  }
-  
-  .search-button {
-    padding:20px;
-  }
-  
+.logo_main {
+  height: 150px;
+}
 
-  @media (max-width: 600px) {
-  .logo_main{
+.searchfield {
+  width: 60%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+}
+
+.search-button {
+  padding: 20px;
+}
+
+@media (max-width: 600px) {
+  .logo_main {
     height: 70px;
   }
+
+  .search-form {
+    flex-direction: row; /* Change the flex direction to column for mobile */
+    align-items: stretch; /* Ensure items stretch to full width */
   }
+
+  .searchfield {
+    width: 80%;
+    margin-bottom: 10px; /* Add some space between input and button in mobile */
+  }
+}
