@@ -87,7 +87,7 @@ const ImageGalleryPage = () => {
             </>
           }
         >
-          {images.length === 0 && <div>No Data Found</div>}
+          {/* {images.length === 0 && <div>No Data Found</div>} */}
           {images.map((item) => (
             <Card
               key={item._id}

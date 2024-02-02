@@ -54,7 +54,8 @@
     margin-bottom: 10px;
     padding: 0.5vw;
   }
-  .main-image {
+  .main-image,
+  .placeholder-box {
     height: 100vw;
     width: 100vw;
     border: 2px solid red;
