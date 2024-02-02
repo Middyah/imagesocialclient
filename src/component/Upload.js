@@ -14,6 +14,7 @@ const ImageUpload = ({ onUpload, title, uploadreff, setuploadreff, selectedCateg
   const navigate = useNavigate();
   const [selectedFile, setSelectedFile] = useState(null);
   const [base64Image, setBase64Image] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const fileToBase64 = (file) => {
     return new Promise((resolve, reject) => {
@@ -50,7 +51,9 @@ const ImageUpload = ({ onUpload, title, uploadreff, setuploadreff, selectedCateg
   };
 
   const uploadImage = async () => {
+   
     if (selectedFile) {
+      setLoading(true);
       const formData = new FormData();
       formData.append('image', selectedFile);
       formData.append('post_title', title);
@@ -71,6 +74,7 @@ const ImageUpload = ({ onUpload, title, uploadreff, setuploadreff, selectedCateg
       } catch (error) {
         console.error('Error uploading image:', error);
       } finally {
+        setLoading(false);
         // window.location.reload();
         localStorage.setItem("reff", new Date().getMilliseconds())
         setuploadreff('');
@@ -94,6 +98,13 @@ const ImageUpload = ({ onUpload, title, uploadreff, setuploadreff, selectedCateg
           <img src={base64Image || ('icon')} alt="Upload Icon" className='modelimage' />
           <input id="file-input" accept="image/*" type="file" onChange={handleFileChange} style={{ display: 'none' }} />
         </label>
+        {loading && (
+          <div className="d-flex justify-content-center">
+            <div className="spinner-border" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </div>
+          </div>
+        )}
 
         {/* Commenting out old image preview */}
         {/* {base64Image && <img src={base64Image} alt="Uploaded" className='modelimage-preview' />} */}
@@ -105,6 +116,7 @@ const Upload = () => {
   const [showModal, setShowModal] = useState(false);
   const [title, setTitle] = useState('');
   const handleClose = () => setShowModal(false);
+  
   const handleShow = () => setShowModal(true);
 
   const handleUploadComplete = (base64Image) => {
@@ -420,6 +432,7 @@ const Upload = () => {
                     </option>
                   ))}
                 </select> */}
+                
                 <select
                   name="category"
                   id="category"
