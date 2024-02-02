@@ -59,6 +59,20 @@ const ImageGalleryPage = () => {
     <div className="image-gallery-container">
       <CustomNavbar />
       <div className="gallery-container">
+      {isLoading && images.length === 0 && (
+          <div className="loading-boxes">
+            {/* Render fake loading boxes */}
+            {[1, 2, 3, 4, 5].map((index) => (
+              <Card key={index} className={`card-custom ${window.innerWidth <= 768 ? 'mobile-card' : ''}`}>
+                {/* ... (rest of your card code) */}
+                <Card.Body style={{ padding: 0 }}>
+                  <div className="placeholder-box"></div>
+                </Card.Body>
+              </Card>
+            ))}
+          </div>
+        )}
+
         <InfiniteScroll
           dataLength={images.length}
           next={loadMore}

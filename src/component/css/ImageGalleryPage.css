@@ -12,7 +12,8 @@
     margin-left: 71px;
   }
   
-  .main-image {
+  .main-image,
+  .placeholder-box {
     object-fit: contain;
     background-color: rgb(54, 54, 54);
     height: 25vw;
