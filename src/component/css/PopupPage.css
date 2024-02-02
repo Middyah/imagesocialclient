@@ -15,6 +15,14 @@
   z-index: 1;
   padding: 10px;
 }
+.custom-modal-header {
+  background-color: #333; /* Replace with your desired background color */
+  border-bottom: 1px solid #ccc;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px 10px 0 0;
+  padding: 10px;
+  color: #333; /* Replace with your desired text color */
+}
 
 .page-links-box {
   padding: 20px;
@@ -50,7 +58,8 @@
     .location-dropdown-container{
     text-align: right;
   }
-  .page-links-container {
+  .page-links-container,
+  .custom-modal-header {
     position: absolute;
     top: 60px;
     left: -80px; /* Adjust the left distance according to your design */

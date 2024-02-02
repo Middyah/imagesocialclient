@@ -405,10 +405,10 @@ const Upload = () => {
         </Button>
         <div className='kkkk'>
           <Modal show={showModal} onHide={handleClose} centered >
-            {/* <Modal.Header closeButton>
-            <Modal.Title>Upload Image</Modal.Title>
-          </Modal.Header> */}
-            <Modal.Body className='modelbody'>
+            <Modal.Header className="custom-modal-header" closeButton>
+            {/* <Modal.Title>Upload Image</Modal.Title> */}
+          </Modal.Header>
+            <Modal.Body className='modelbody' >
               <>
                 <input
                   type="text"
