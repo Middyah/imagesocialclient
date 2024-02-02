@@ -58,6 +58,11 @@
     .location-dropdown-container{
     text-align: right;
   }
+  .custom-modal-header .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
   .page-links-container,
   .custom-modal-header {
     position: absolute;
