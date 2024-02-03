@@ -1,0 +1,97 @@
+/* Header.css */
+.header {
+  overflow: hidden;
+  background-color: #ffffff;
+  height: 240px;
+}
+
+.header-content {
+  width: 100vw;
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap to the next line */
+  justify-content: space-between;
+  align-items: center;
+}
+
+.left-component,
+.center-component,
+.right-component {
+  padding: 0;
+  flex: 1; /* Make the first three components take up equal space */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.left-component {
+  justify-content: flex-start;
+}
+
+.center-component {
+  flex-grow: 2; /* Center component takes up twice the space */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.center-component > img {
+  height: 60px;
+  margin-top: -70px;
+  margin-bottom: -40px;
+}
+
+.right-component {
+  justify-content: flex-end;
+}
+
+.center-component input {
+  /* width: calc(100% - 20px); */
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 35px;
+  margin-right: 10px;
+}
+
+.center-component input::placeholder {
+  color: #aaa;
+}
+
+.search-container {
+  display: flex;
+}
+
+.center-component button {
+  padding: 8px 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.additional-component {
+  flex-basis: 100%; /* Make the fourth component take up 100% of the width */
+}
+
+/* Media Query for smaller screens */
+@media (max-width: 768px) {
+  .header{
+    margin-top: -30px;
+    height: 180px;
+  }
+  .left-component,
+  .right-component {
+    width: 50%; /* Make left and right components take up 50% of the width */
+    justify-content: center; /* Center the content in left and right components */
+  }
+
+  .center-component {
+    flex-grow: 1; /* Center component takes up equal space on smaller screens */
+  }
+
+  .center-component > img {
+    height: 40px;
+  }
+}
