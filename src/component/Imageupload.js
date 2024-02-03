@@ -118,6 +118,7 @@ const Upload = () => {
     'Technology',
     'Finance',
     'Sports',
+    "Gaming",
     'Real Estate',
     'Others',
     'Website Activity',

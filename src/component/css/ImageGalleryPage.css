@@ -47,6 +47,7 @@
   padding: 1vw;
 }
 
+
 /* Responsive styles for screens less than or equal to 768px (mobile devices) */
 @media (max-width: 768px) {
   .card-custom {
@@ -54,6 +55,7 @@
     margin-bottom: 10px;
     padding: 0.5vw;
   }
+  
   .main-image,
   .placeholder-box {
     height: 100vw;

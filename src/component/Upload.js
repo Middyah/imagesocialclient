@@ -13,8 +13,10 @@ const ImageUpload = ({ onUpload, title, uploadreff, setuploadreff, selectedCateg
   Contact, Link, Productname }) => {
   const navigate = useNavigate();
   const [selectedFile, setSelectedFile] = useState(null);
+
   const [base64Image, setBase64Image] = useState('');
   const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const fileToBase64 = (file) => {
     return new Promise((resolve, reject) => {
@@ -51,8 +53,13 @@ const ImageUpload = ({ onUpload, title, uploadreff, setuploadreff, selectedCateg
   };
 
   const uploadImage = async () => {
+    if (!selectedFile || !selectedCategory || !selectedLocation || !Productname) {
+      // If any of the mandatory fields are not filled, set an error message
+      setErrorMessage('Please fill all mandatory fields.');
+      return;
+    }
    
-    if (selectedFile) {
+    if (selectedFile && Productname && selectedLocation && selectedCategory) {
       setLoading(true);
       const formData = new FormData();
       formData.append('image', selectedFile);
@@ -75,6 +82,7 @@ const ImageUpload = ({ onUpload, title, uploadreff, setuploadreff, selectedCateg
         console.error('Error uploading image:', error);
       } finally {
         setLoading(false);
+        setErrorMessage('');
         // window.location.reload();
         localStorage.setItem("reff", new Date().getMilliseconds())
         setuploadreff('');
@@ -94,6 +102,8 @@ const ImageUpload = ({ onUpload, title, uploadreff, setuploadreff, selectedCateg
     <div className="auth-wrapper">
       <div className="auth-inner">
         <p>Let's upload an image</p>
+        {errorMessage && <div style={{ color: 'red' }}>{errorMessage}</div>}
+    
         <label htmlFor="file-input" className="file-label">
           <img src={base64Image || ('icon')} alt="Upload Icon" className='modelimage' />
           <input id="file-input" accept="image/*" type="file" onChange={handleFileChange} style={{ display: 'none' }} />
@@ -144,7 +154,7 @@ const Upload = () => {
   // ];
 
   const options = [
-    { value: 'Select the Category', label: 'Select the Category' },
+    { value: 'Select the Category', label: 'Select the Category*' },
     { value: 'Product', label: 'Product' },
     { value: 'Service', label: 'Service' },
     { value: 'Health', label: 'Health' },
@@ -170,7 +180,7 @@ const Upload = () => {
   // ];
 
   const countries = [
-    'Select a country',
+    'Select a country*',
     'Afghanistan',
     'Albania',
     'Algeria',
@@ -476,7 +486,7 @@ const Upload = () => {
               <div className='twoinput'>
                 <input
                   type="text"
-                  placeholder="Product Name"
+                  placeholder="Product Name*"
                   value={Productname}
                   onChange={(e) => setProductname(e.target.value)}
                   style={{ marginLeft: '11px', marginBottom: "10px", marginTop: "5px" }}

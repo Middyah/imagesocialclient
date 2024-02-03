@@ -9,6 +9,7 @@ const Navbar = () => {
       <div className="custom-left-component">
         <CustomLocationDropdown />
       </div>
+      
       <div className="custom-right-component">
         <CustomPopupPage />
       </div>

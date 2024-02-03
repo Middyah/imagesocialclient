@@ -21,6 +21,7 @@ export default () => {
     "Technology",
     "Finance",
     "Sports",
+    "Gaming",
     "Real Estate",
     "Others",
     "Website Activity"

@@ -10,6 +10,7 @@ import CustomNavbar from './CustomNavbar';
 import './css/ImageGalleryPage.css'; // Import the CSS file
 
 
+
 const ImageGalleryPage = () => {
   // ... (rest of the code remains unchanged)
   const searchParams = new URLSearchParams(document.location.search)
@@ -55,14 +56,18 @@ const ImageGalleryPage = () => {
     window.location.assign(link)
   }
   console.log(images, page, "hhh", imageLoaded);
+
+  
   return (
     <div className="image-gallery-container">
+      
       <CustomNavbar />
+      
       <div className="gallery-container">
       {isLoading && images.length === 0 && (
           <div className="loading-boxes">
             {/* Render fake loading boxes */}
-            {[1, 2, 3, 4, 5].map((index) => (
+            {[1, 2].map((index) => (
               <Card key={index} className={`card-custom ${window.innerWidth <= 768 ? 'mobile-card' : ''}`}>
                 {/* ... (rest of your card code) */}
                 <Card.Body style={{ padding: 0 }}>
