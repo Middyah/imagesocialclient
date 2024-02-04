@@ -8,9 +8,10 @@ import CustomNavbar from './CustomNavbar';
 const Searchbar = () => {
   const navigate = useNavigate();
   const [title, setTitle] = useState('');
-
+  const [productname, setProductname] = useState('');
   const handleSearch = () => {
-    navigate(`/mainarea?post_title=${title}`);
+    // navigate(`/mainarea?post_title=${title}`);
+    navigate(`/mainarea?Productname=${productname}`);
   };
 
   const handleKeyPress = (e) => {
@@ -35,7 +36,7 @@ const Searchbar = () => {
             name="q"
             placeholder="Search here"
             className='searchfield'
-            onChange={(e) => setTitle(e.target.value)}
+            onChange={(e) => setProductname(e.target.value)}
             onKeyDown={(e) => handleKeyPress(e)}
           />
           <button

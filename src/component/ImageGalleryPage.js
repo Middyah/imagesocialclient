@@ -15,6 +15,7 @@ const ImageGalleryPage = () => {
   // ... (rest of the code remains unchanged)
   const searchParams = new URLSearchParams(document.location.search)
   let category = searchParams.get('category')
+  let productname = searchParams.get('Productname');
   let post_title = searchParams.get('post_title')
   console.log(post_title, category, "jfghfghg");
   const [page, setPage] = useState(1);
@@ -33,7 +34,7 @@ const ImageGalleryPage = () => {
   let location = localStorage.getItem("location")
   const fetchImages = async () => {
     try {
-      let res = await apiUrl.get(`/api/userpost/getallpost?page=${page}&limit=7&category=${category === null ? "" : category}&post_title=${post_title === null ? "" : post_title}&location=${location !== null ? location : ""}`)
+      let res = await apiUrl.get(`/api/userpost/getallpost?page=${page}&limit=7&category=${category === null ? "" : category}&&Productname=${productname === null ? "": productname}&location=${location !== null ? location : ""}`)
       setImages((prevData) => [...images, ...res.data.posts])
       setIsLoading(res.data.posts)
     } catch (err) {
