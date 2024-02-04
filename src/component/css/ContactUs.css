@@ -1,0 +1,57 @@
+/* ContactUsPage.css */
+.contact-us-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+    background-color: #161616;
+}
+
+.contact-box {
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 70%;
+    background-color: #242527; /* Add your desired background color */
+    color: #161616; /* Set text color */
+    margin: 20px; /* Add margin for better spacing on small screens */
+}
+
+.contact-box > h2 {
+    font-size: 55px;
+    color: #fff; /* Set heading color to white */
+}
+
+.contact-box > a {
+    color: #fff;
+    font-weight: 700;
+    font-size: 30px;
+    text-decoration: none;
+}
+
+.contact-box > p {
+    color: #fff;
+    font-size: 20px;
+}
+
+/* Responsive styles */
+@media only screen and (max-width: 768px) {
+    .contact-box {
+        width: 90%; /* Adjust the width for smaller screens */
+    }
+
+    .contact-box > h2 {
+        font-size: 40px; /* Adjust heading font size */
+    }
+
+    .contact-box > a {
+        font-size: 24px; /* Adjust link font size */
+    }
+
+    .contact-box > p {
+        font-size: 16px; /* Adjust paragraph font size */
+    }
+}
+
+/* Add more media queries as needed for different screen sizes */
