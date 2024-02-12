@@ -11,11 +11,12 @@ import Hiring from './component/Hiring'; // Corrected import
 import Share from './component/Share';
 import Payment from './component/Payment';
 import PosterMaking from './component/PosterMaking'
-
+import NavbarPost from "./component/NavbarPost"
 function App() {
   return (
     <div>
       {/* Define routes using React Router */}
+      <NavbarPost/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/mainarea" element={<MainArea />} />

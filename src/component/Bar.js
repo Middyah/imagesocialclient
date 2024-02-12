@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './css/SearchBar.css';
 
 const Bar = ({ onSearch }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [category, setCategory] = useState('');
-
+  const navigate=useNavigate()
+console.log(category,"category");
   const handleSearch = (e) => {
     e.preventDefault();
     onSearch(searchTerm, category);
@@ -26,6 +28,11 @@ const Bar = ({ onSearch }) => {
      'Website Activity',
   ];
 
+  const handleCategory=(e)=>{
+    setCategory(e.target.value)
+    navigate(`/mainarea?category=${e.target.value}`)
+    // localStorage.setItem("category",e.target.value)
+  }
   return (
     <div className="search-bar">
       <form onSubmit={handleSearch}>
@@ -37,11 +44,11 @@ const Bar = ({ onSearch }) => {
         />
         <select
           value={category}
-          onChange={(e) => setCategory(e.target.value)}
+          onChange={(e) => handleCategory(e)}
         >
           <option value="">All Categories</option>
-          {categories.map((category) => (
-            <option key={category} value={category}>
+          {categories.map((category,index) => (
+            <option key={category} value={index}>
               {category}
             </option>
           ))}

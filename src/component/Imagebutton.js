@@ -49,7 +49,7 @@ console.log(userlike,totallike,data);
       try {
         await navigator.share({
           title: 'Shared Title',
-          url:"https://imagesocialclient.vercel.app/mainarea?category=0",
+          url:`https://middyah.com/mainarea?id=${id}`,
         });
         console.log('Shared successfully');
       } catch (error) {

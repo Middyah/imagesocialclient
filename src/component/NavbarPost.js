@@ -4,18 +4,24 @@ import LocationDropdown from './LocationDropdown';
 import PopupPage from './PopupPage';
 import logo from './image/logo.png';
 import Bar from './Bar';
-
+import LocationDropdown2 from './LocationDropdown2';
+import {Route, Link, Routes, useLocation} from 'react-router-dom';
 const Header = () => {
-
-
+  const location = useLocation();
+  const pathname = location.pathname;
+console.log(pathname,"pathname");
   return (
-    <nav className="header"> {/* Update the class name here */}
-      <div className="header-content"> {/* Update the class name here */}
-        <div className="left-component">
-          <LocationDropdown />
+    <>
+
+    <nav className={pathname==="/"?"":"header"}> 
+      <div className={pathname==="/"?"custom-navbar-content":"header-content"}> 
+        <div className={pathname==="/"?"custom-left-component":"left-component"}>  
+        {/* {pathname==="/"? <LocationDropdown />:<LocationDropdown2/>} */}
+        <LocationDropdown/>
         </div>
 
-        <div className="center-component">
+{pathname!=="/"&&(
+  <div className="center-component">
           <img
             className='logo_main'
             src={logo}
@@ -24,16 +30,22 @@ const Header = () => {
           />
         </div>
 
-        <div className="right-component">
+)}
+        
+        <div className={pathname==="/"?"custom-right-component":"right-component"}>
           <PopupPage />
         </div>
 
-        {/* Add one more div under the existing three */}
+        {pathname!=="/"&&(
         <div className="additional-component">
           <Bar />
         </div>
+        )}
+
       </div>
     </nav>
+    </>
+   
   );
 };
 

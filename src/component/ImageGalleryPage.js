@@ -17,6 +17,7 @@ const ImageGalleryPage = () => {
   let category = searchParams.get('category')
   let productname = searchParams.get('Productname');
   let post_title = searchParams.get('post_title')
+  let id = searchParams.get('id')
   console.log(post_title, category, "jfghfghg");
   const [page, setPage] = useState(1);
   const [images, setImages] = useState([]);
@@ -31,10 +32,20 @@ const ImageGalleryPage = () => {
 
   };
   let reff = localStorage.getItem("reff")
-  let location = localStorage.getItem("location")
+  // let location = localStorage.getItem("location")
+  const[location,setLocation]=useState(localStorage.getItem('location'))
+const[imagecategory,setImagecategory]=useState(category)
+  setInterval(()=>{
+    setLocation(localStorage.getItem('location'))
+  },1000)
+  setInterval(()=>{
+    setImagecategory(category)
+  },1000)
+  
+  
   const fetchImages = async () => {
     try {
-      let res = await apiUrl.get(`/api/userpost/getallpost?page=${page}&limit=7&category=${category === null ? "" : category}&&Productname=${productname === null ? "": productname}&location=${location !== null ? location : ""}`)
+      let res = await apiUrl.get(`/api/userpost/getallpost?page=${page}&limit=7&category=${category === null ? "" : category}&&Productname=${productname === null ? "": productname}&location=${location !== null ? location : ""}&_id=${id}`)
       setImages((prevData) => [...images, ...res.data.posts])
       setIsLoading(res.data.posts)
     } catch (err) {
@@ -45,7 +56,7 @@ const ImageGalleryPage = () => {
 
   useEffect(() => {
     fetchImages();
-  }, [page, reff]);
+  }, [page, reff,imagecategory,location]);
 
   const [imageLoaded, setImageLoaded] = useState(false);
   const handleImageLoad = () => {
@@ -62,8 +73,8 @@ const ImageGalleryPage = () => {
   return (
     <div className="image-gallery-container">
       
-      <NavbarPost />
-      
+      {/* <NavbarPost /> */}
+      {/* <CustomNavbar /> */}
       <div className="gallery-container">
       {isLoading && images.length === 0 && (
           <div className="loading-boxes">

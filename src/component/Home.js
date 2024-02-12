@@ -4,7 +4,7 @@ import '../component/css/Home.css';
 import CarouselItem from './CarouselItem';
 import { useNavigate } from 'react-router-dom';
 import CustomNavbar from './CustomNavbar';
-
+import NavbarPost from "./NavbarPost"
 const Searchbar = () => {
   const navigate = useNavigate();
   const [title, setTitle] = useState('');
@@ -22,7 +22,8 @@ const Searchbar = () => {
 
   return (
     <div>
-      <CustomNavbar />
+      {/* <CustomNavbar /> */}
+      {/* <NavbarPost/> */}
       <div style={{ textAlign: 'center', paddingTop: '100px' }}>
         <img
           className='logo_main'
