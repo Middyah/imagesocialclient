@@ -181,7 +181,7 @@ const Upload = () => {
   // ];
 
   const countries = [
-    'Select a country*',
+   
     'Afghanistan',
     'Albania',
     'Algeria',
@@ -429,20 +429,16 @@ const Upload = () => {
                   style={{ marginLeft: '11px' }}
                   className='inputtext'
                 />
-                <select name="location" id="location" value={selectedLocation} onChange={handleLocation} className='input' style={{ marginLeft: '11px' }}>
-                  {countries.map((option, index) => (
-                    <option key={index} value={index}>
-                      {option}
-                    </option>
-                  ))}
-                </select>
-                {/* <select name="category" id="category" value={selectedCategory} onChange={handleCategoryChange} className='input' style={{ marginLeft: '11px' }}>
-                  {options.map((option, index) => (
-                    <option key={index} value={index}>
-                      {option}
-                    </option>
-                  ))}
-                </select> */}
+               <select name="location" id="location" value={selectedLocation} onChange={handleLocation} className='input' style={{ marginLeft: '11px' }}>
+  <option value="" disabled selected>Select a location</option>
+  {countries.map((option, index) => (
+    <option key={index} value={index}>
+      {option}
+    </option>
+  ))}
+</select>
+
+                
                 
                 <select
                   name="category"
