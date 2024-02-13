@@ -30,7 +30,8 @@ console.log(category,"category");
 
   const handleCategory=(e)=>{
     setCategory(e.target.value)
-    navigate(`/mainarea?category=${e.target.value}`)
+    localStorage.setItem("categorydata",e.target.value)
+    // navigate(`/mainarea?category=${e.target.value}`)
     // localStorage.setItem("category",e.target.value)
   }
   return (

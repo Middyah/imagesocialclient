@@ -27,37 +27,48 @@ const ImageGalleryPage = () => {
       setPage((prevPage) => prevPage + 1);
     }
   };
+  const[imgdata,setImgdata]=useState([])
   const loadMore = () => {
     setPage((prevPage) => prevPage + 1);
 
+
   };
+ 
+  console.log(images,"this is images",imgdata);
   let reff = localStorage.getItem("reff")
   // let location = localStorage.getItem("location")
   const[location,setLocation]=useState(localStorage.getItem('location'))
-const[imagecategory,setImagecategory]=useState(category)
+
+const[imagecategory,setImagecategory]=useState(localStorage.getItem("categorydata"))
   setInterval(()=>{
     setLocation(localStorage.getItem('location'))
   },1000)
   setInterval(()=>{
-    setImagecategory(category)
+    setImagecategory(localStorage.getItem("categorydata"))
   },1000)
   
-  
+  console.log(imagecategory,"imagecategory")
+
   const fetchImages = async () => {
     try {
-      let res = await apiUrl.get(`/api/userpost/getallpost?page=${page}&limit=7&category=${category === null ? "" : category}&&Productname=${productname === null ? "": productname}&location=${location !== null ? location : ""}&_id=${id}`)
-      setImages((prevData) => [...images, ...res.data.posts])
+      let res = await apiUrl.get(`/api/userpost/getallpost?page=${page}&limit=7&category=${imagecategory?imagecategory:(category === null ? "" : category)}&&Productname=${productname === null ? "": productname}&location=${location !== null ? location : ""}&_id=${id?id:""}`)
+      setImgdata(res.data.posts)
+      // setImages((prevData) => [...images, ...res.data.posts])
       setIsLoading(res.data.posts)
     } catch (err) {
       console.log(err);
     }
   };
 
-
+  useEffect(()=>{
+    setImages((prevData) => [...images, ...imgdata]) 
+  },[page,imgdata.length])
   useEffect(() => {
     fetchImages();
   }, [page, reff,imagecategory,location]);
-
+useEffect(()=>{
+  setImages([])
+},[imagecategory,location])
   const [imageLoaded, setImageLoaded] = useState(false);
   const handleImageLoad = () => {
     setImageLoaded(true);
