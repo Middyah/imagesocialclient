@@ -53,16 +53,16 @@ const[imagecategory,setImagecategory]=useState(localStorage.getItem("categorydat
     try {
       let res = await apiUrl.get(`/api/userpost/getallpost?page=${page}&limit=7&category=${imagecategory?imagecategory:(category === null ? "" : category)}&&Productname=${productname === null ? "": productname}&location=${location !== null ? location : ""}&_id=${id?id:""}`)
       setImgdata(res.data.posts)
-      // setImages((prevData) => [...images, ...res.data.posts])
+      setImages((prevData) => [...images, ...res.data.posts])
       setIsLoading(res.data.posts)
     } catch (err) {
       console.log(err);
     }
   };
 
-  useEffect(()=>{
-    setImages((prevData) => [...images, ...imgdata]) 
-  },[page,imgdata.length])
+  // useEffect(()=>{
+  //   setImages((prevData) => [...images, ...imgdata]) 
+  // },[page,imgdata.length])
   useEffect(() => {
     fetchImages();
   }, [page, reff,imagecategory,location]);
