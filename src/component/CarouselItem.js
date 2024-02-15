@@ -9,22 +9,39 @@ export default () => {
   const [activeItemIndex, setActiveItemIndex] = useState(0);
   const chevronWidth = 70;
   const options = [
-    "All",
-    "What's new",
-    "Product",
-    "Service",
-    "Health",
-    "Education",
-    "Job",
-    "Lifestyle",
-    "Entertainment",
-    "Technology",
-    "Finance",
-    "Sports",
-    "Gaming",
-    "Real Estate",
-    "Others",
-    "Website Activity"
+    // "All4",
+    // "What's new",
+    // "Product2",
+    // "Service",
+    // "Health",
+    // "Education",
+    // "Job",
+    // "Lifestyle",
+    // "Entertainment",
+    // "Technology",
+    // "Finance",
+    // "Sports",
+    // "Gaming",
+    // "Real Estate",
+    // "Others",
+    // "Website Activity"
+
+    { value: 0, label: 'All1' },
+    { value: 0, label: "What's new" },
+    { value: 1, label: 'Product4' },
+    { value: 2, label: 'Service' },
+    { value: 3, label: 'Health' },
+    { value: 4, label: 'Education' },
+    { value: 5, label: 'Job' },
+    { value: 6, label: 'Lifestyle' },
+    { value: 7, label: 'Entertainment' },
+    { value: 8, label: 'Technology' },
+    { value: 9, label: 'Finance' },
+    { value: 10, label: 'Sports' },
+    { value: 11, label: 'Gaming' },
+    { value: 12, label: 'Real Estate' },
+    { value: 13, label: 'Others' },
+    { value: 14, label: 'Website Activity' },
   ];
 
   const cardStyle = {
@@ -71,7 +88,7 @@ export default () => {
   const handleCategoryClick = (category) => {
     // Navigate to the appropriate URL based on the selected category
     // navigate(`/mainarea?category=${category}`);
-    const selectedCategory = category === "All" ? 0 : category;
+    const selectedCategory = category === "All" || "What's new" ? 0 : category;
   navigate(`/mainarea?category=${selectedCategory}`);
   };
 
@@ -91,10 +108,10 @@ export default () => {
         {options.map((item, index) => (
           <div
             className='carouselitem'
-            key={index}
-            onClick={() => handleCategoryClick(item)}
+            key={item.value}
+            onClick={() => handleCategoryClick(item.value)}
           >
-            <div className='itemitem'>{item}</div>
+            <div className='itemitem'>{item.label}</div>
           </div>
         ))}
       </ItemsCarousel>

@@ -20,6 +20,9 @@ const Searchbar = () => {
     }
   };
 
+  localStorage.removeItem("categorydata")
+
+
   return (
     <div>
       {/* <CustomNavbar /> */}

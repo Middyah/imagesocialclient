@@ -155,21 +155,25 @@ const Upload = () => {
 
   const options = [
     { value: 'Select the Category', label: 'Select the Category*' },
-    { value: 'Product', label: 'Product' },
-    { value: 'Service', label: 'Service' },
-    { value: 'Health', label: 'Health' },
-    { value: 'Education', label: 'Education' },
-    { value: 'Job', label: 'Job' },
-    { value: 'Lifestyle', label: 'Lifestyle' },
-    { value: 'Entertainment', label: 'Entertainment' },
-    { value: 'Technology', label: 'Technology' },
-    { value: 'Finance', label: 'Finance' },
-    { value: 'Sports', label: 'Sports' },
-    { value: 'Gaming', label: 'Gaming' },
-    { value: 'Real Estate', label: 'Real Estate' },
-    { value: 'Others', label: 'Others' },
-    { value: 'Website Activity', label: 'Website Activity' },
+    { value: 1, label: 'Product' },
+    { value: 2, label: 'Service' },
+    { value: 3, label: 'Health' },
+    { value: 4, label: 'Education' },
+    { value: 5, label: 'Job' },
+    { value: 6, label: 'Lifestyle' },
+    { value: 7, label: 'Entertainment' },
+    { value: 8, label: 'Technology' },
+    { value: 9, label: 'Finance' },
+    { value: 10, label: 'Sports' },
+    { value: 11, label: 'Gaming' },
+    { value: 12, label: 'Real Estate' },
+    { value: 13, label: 'Others' },
+    { value: 14, label: 'Website Activity' },
   ];
+
+
+
+
   // const countries = [
   //   'Select a country',
   //   'United States',
