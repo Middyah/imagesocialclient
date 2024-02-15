@@ -14,6 +14,8 @@
 
   .link{
     border: 1px solid black;
+    border-radius:25px;
+    text-decoration:none;
     padding: 5px 10px;
   }
   
