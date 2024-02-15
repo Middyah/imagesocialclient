@@ -1,0 +1,70 @@
+/* ImageGalleryPage.css */
+.headtop {
+    display: flex;
+  }
+  
+  .card-title {
+    width: 50%;
+  }
+  
+  .card-paragraph {
+    width: 75%;
+    margin-left: 71px;
+  }
+
+  .link{
+    border: 1px solid black;
+    padding: 5px 10px;
+  }
+  
+  .main-image,
+  .placeholder-box {
+    object-fit: contain;
+    background-color: rgb(54, 54, 54);
+    height: 25vw;
+    width: 25vw;
+    border: 2px solid red;
+  }
+  
+  /* Add more styles as needed */
+  /* ImageGalleryPage.css */
+
+.image-gallery-container {
+  text-align: center;
+}
+
+.gallery-container {
+  text-align: center;
+  display: inline-block;
+}
+
+.headtop{
+  justify-content: space-between;
+ 
+}
+.card-title{
+    text-align:left;
+}
+
+.card-custom {
+  width: 27.15vw;
+  margin-bottom: 12px;
+  padding: 1vw;
+}
+
+
+/* Responsive styles for screens less than or equal to 768px (mobile devices) */
+@media (max-width: 768px) {
+  .card-custom {
+    width: 100vw;
+    margin-bottom: 10px;
+    padding: 0.5vw;
+  }
+  
+  .main-image,
+  .placeholder-box {
+    height: 100vw;
+    width: 100vw;
+    border: 2px solid red;
+  }
+}
