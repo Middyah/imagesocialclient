@@ -88,7 +88,7 @@ export default () => {
   const handleCategoryClick = (category) => {
     // Navigate to the appropriate URL based on the selected category
     // navigate(`/mainarea?category=${category}`);
-    const selectedCategory = category === "All" || "What's new" ? 0 : category;
+    const selectedCategory = category === "All" ||category ===  "What's new" ? 0 : category;
   navigate(`/mainarea?category=${selectedCategory}`);
   };
 
