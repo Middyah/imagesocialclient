@@ -26,9 +26,9 @@ export default () => {
     // "Others",
     // "Website Activity"
 
-    { value: 0, label: 'All1' },
+    { value: 0, label: 'All' },
     { value: 0, label: "What's new" },
-    { value: 1, label: 'Product4' },
+    { value: 1, label: 'Product' },
     { value: 2, label: 'Service' },
     { value: 3, label: 'Health' },
     { value: 4, label: 'Education' },
