@@ -1,6 +1,6 @@
 // App.js
 import './App.css';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes , useLocation} from 'react-router-dom';
 import ImageGalleryPage from './component/ImageGalleryPage';
 import Home from './component/Home';
 import MainArea from './component/ImageGalleryPage';
@@ -13,10 +13,14 @@ import Payment from './component/Payment';
 import PosterMaking from './component/PosterMaking'
 import NavbarPost from "./component/NavbarPost"
 function App() {
+  const location = useLocation();
   return (
     <div>
       {/* Define routes using React Router */}
-      <NavbarPost/>
+      {/* <NavbarPost/> */}
+      {/* {location.pathname === '/mainarea' && <NavbarPost />} */}
+      {(location.pathname === '/mainarea' || location.pathname === '/') && <NavbarPost />}
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/mainarea" element={<MainArea />} />
