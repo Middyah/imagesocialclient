@@ -68,8 +68,9 @@
   background-color: #fff;
   cursor: pointer;
 }
+
 @media (max-width: 768px)
-.left-component, .right-component {
+.left-component {
     padding-left: 0px;
     margin-left: -25px;
     justify-content: start;
