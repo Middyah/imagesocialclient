@@ -46,7 +46,7 @@ export default () => {
 
   const cardStyle = {
     background: '#ffffff',
-    width: '150px', // Set your preferred width
+    width: '180px', // Set your preferred width
     height: '40px', // Set your preferred height
     display: 'flex',
     alignItems: 'center',
