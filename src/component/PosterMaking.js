@@ -30,8 +30,8 @@ const Payment = () => {
                 <div className="payment-box">
                     <h2>Bank TransferAccount <br />
                         Name: Pritam Adhikari<br />
-                        Account Number: 1245239785121<br />
-                        IFSC: 1245239785121<br />
+                        Account Number: 4445811429<br />
+                        IFSC: KKBK0000329<br />
                         Brunch Name: Narendrapur</h2>
                 </div>
                 {/* <div className="payment-box">
