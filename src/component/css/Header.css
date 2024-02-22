@@ -82,11 +82,12 @@
     height: 180px;
   }
 
-  .left-component,
-  .right-component {
-    width: 50%;
-    justify-content: center;
-  }
+  .left-component, .right-component {
+    padding-left: 0px;
+    margin-left: -25px;
+    justify-content: start;
+    width: 40%;
+}
 
   .center-component {
     flex-grow: 1;
