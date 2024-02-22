@@ -82,9 +82,10 @@
     height: 180px;
   }
 
-  .left-component, .right-component {
+  .left-component {
     padding-left: 0px;
     margin-left: -25px;
+    margin-top: -20px;
     justify-content: start;
     width: 40%;
 }
