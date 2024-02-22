@@ -32,7 +32,7 @@ const Payment = () => {
                         Name: Pritam Adhikari<br />
                         Account Number: 4445811429<br />
                         IFSC: KKBK0000329<br />
-                        Brunch Name: Narendrapur</h2>
+                        Branch Name: Narendrapur</h2>
                 </div>
                 {/* <div className="payment-box">
           <h2>Payment Method 4</h2>
