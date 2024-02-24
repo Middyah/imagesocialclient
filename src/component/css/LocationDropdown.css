@@ -1,4 +1,9 @@
 /* LocationDropdown.css */
+/* LocationDropdown.css */
+.left-align .item {
+  text-align: left !important;
+}
+
 .location-dropdown-container {
     width: 70%;
     text-align: left;
