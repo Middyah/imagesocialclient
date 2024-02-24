@@ -10,7 +10,10 @@
     font-size: 16px;
     margin-right: 10px;
   }
-  
+
+ .multi_select_drp {
+  text-align: left;
+}
   .dropdown-select {
     padding: 10px;
     font-size: 18px;
