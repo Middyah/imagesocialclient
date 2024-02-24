@@ -11,9 +11,11 @@
     margin-right: 10px;
   }
 
- .multi_select_drp {
-  text-align: left;
+/* LocationDropdown.css */
+.multi-select-container .item {
+  text-align: left !important;
 }
+
   .dropdown-select {
     padding: 10px;
     font-size: 18px;
