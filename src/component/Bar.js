@@ -28,7 +28,7 @@ console.log(category,"category");
     //  'Website Activity',
 
     { value: 0, label: 'All' },
-    { value: 0, label: "What's new" },
+    { value: 15, label: "What's new" },
     { value: 1, label: 'Product' },
     { value: 2, label: 'Service' },
     { value: 3, label: 'Health' },

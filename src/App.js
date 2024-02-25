@@ -23,7 +23,11 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/mainarea" element={<MainArea />} />
+        {/* <Route path="/mainarea" element={<MainArea />} /> */}
+        <Route
+  path="/mainarea"
+  element={<ImageGalleryPage category={localStorage.getItem('categorydata')} />}
+/>
         <Route path="/gallery" element={<ImageGalleryPage />} />
         <Route path="/aboutus" element={<AboutUsPage />} />
         <Route path="/contactus" element={<ContactUs />} />
