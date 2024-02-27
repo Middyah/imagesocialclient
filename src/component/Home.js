@@ -11,7 +11,7 @@ const Searchbar = () => {
   const [productname, setProductname] = useState('');
   const handleSearch = () => {
     // navigate(`/mainarea?post_title=${title}`);
-    navigate(`/mainarea?Productname=${productname}`);
+    navigate(`/mainarea?Productname=${productname}&category=0`);
   };
 
   const handleKeyPress = (e) => {

@@ -6,10 +6,16 @@ import logo from './image/logo.png';
 import Bar from './Bar';
 import LocationDropdown2 from './LocationDropdown2';
 import {Route, Link, Routes, useLocation} from 'react-router-dom';
-const Header = () => {
+const Header = ({onSearch2}) => {
   const location = useLocation();
   const pathname = location.pathname;
 console.log(pathname,"pathname");
+
+
+const onSearch=(a) =>{
+  console.log(a,"aman");
+  onSearch2(a)
+}
   return (
     <>
 
@@ -38,7 +44,7 @@ console.log(pathname,"pathname");
 
         {pathname!=="/"&&(
         <div className="additional-component">
-          <Bar />
+          <Bar onSearch={onSearch}/>
         </div>
         )}
 

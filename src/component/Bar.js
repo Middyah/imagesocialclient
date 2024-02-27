@@ -3,15 +3,22 @@ import { useNavigate } from 'react-router-dom';
 import './css/SearchBar.css';
 
 const Bar = ({ onSearch }) => {
+
+
+  const searchParams = new URLSearchParams(document.location.search)
+  let category1 = searchParams.get('category')
   const [searchTerm, setSearchTerm] = useState('');
-  const [category, setCategory] = useState('');
+  const [category, setCategory] = useState(category1);
   const navigate=useNavigate()
 console.log(category,"category");
   const handleSearch = (e) => {
-    e.preventDefault();
-    onSearch(searchTerm, category);
+    // onSearch(searchTerm, category);
   };
+  useEffect(()=>{
+    onSearch(searchTerm);
+  },[searchTerm])
 
+  console.log(searchTerm,"category1",category);
   const categories = [
     //  'Product1',
     //  'Service',
@@ -46,9 +53,10 @@ console.log(category,"category");
   ];
 
   const handleCategory=(e)=>{
+
     setCategory(e.target.value)
     // localStorage.setItem("categorydata",e.target.value)
-    // navigate(`/mainarea?category=${e.target.value}`)
+    navigate(`/mainarea?category=${e.target.value}`)
     // localStorage.setItem("category",e.target.value)
   }
   useEffect(()=>{
@@ -56,7 +64,7 @@ console.log(category,"category");
   },[category])
   return (
     <div className="search-bar">
-      <form onSubmit={handleSearch}>
+      
         <input
           type="text"
           placeholder="Search for products..."
@@ -74,8 +82,8 @@ console.log(category,"category");
             </option>
           ))}
         </select>
-        <button type="submit">Search</button>
-      </form>
+        <button onClick={handleSearch} type="submit">Search</button>
+      
     </div>
   );
 };

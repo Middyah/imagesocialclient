@@ -11,7 +11,7 @@ import './css/ImageGalleryPage.css'; // Import the CSS file
 
 
 
-const ImageGalleryPage = () => {
+const ImageGalleryPage = ({serch}) => {
   // ... (rest of the code remains unchanged)
   const searchParams = new URLSearchParams(document.location.search)
   let category = searchParams.get('category')
@@ -52,7 +52,7 @@ const[imagecategory,setImagecategory]=useState(localStorage.getItem("categorydat
   const fetchImages = async () => {
     try {
       // alert(2)
-      let res = await apiUrl.get(`/api/userpost/getallpost?page=${page}&limit=7&category=${imagecategory?imagecategory:(category === null ? "" : category)}&&Productname=${productname === null ? "": productname}&location=${location !== null ? location : ""}&_id=${id?id:""}`)
+      let res = await apiUrl.get(`/api/userpost/getallpost?page=${page}&limit=7&category=${imagecategory?imagecategory:(category === null ? "" : category)}&&Productname=${serch?serch:(productname === null ? "": productname)}&location=${location !== null ? location : ""}&_id=${id?id:""}`)
       setImgdata(res.data.posts)
       setImages((prevData) => [...images, ...res.data.posts])
       // setImages([...res.data.posts])
@@ -65,7 +65,7 @@ const[imagecategory,setImagecategory]=useState(localStorage.getItem("categorydat
   const fetchImages2 = async () => {
     try {
       // alert(1)
-      let res = await apiUrl.get(`/api/userpost/getallpost?page=${page}&limit=7&category=${imagecategory?imagecategory:(category === null ? "" : category)}&&Productname=${productname === null ? "": productname}&location=${location !== null ? location : ""}&_id=${id?id:""}`)
+      let res = await apiUrl.get(`/api/userpost/getallpost?page=${page}&limit=7&category=${imagecategory?imagecategory:(category === null ? "" : category)}&&Productname=${serch?serch:(productname === null ? "": productname)}&location=${location !== null ? location : ""}&_id=${id?id:""}`)
       setImgdata(res.data.posts)
       // setImages((prevData) => [...images, ...res.data.posts])
       setImages([...res.data.posts])
@@ -86,11 +86,11 @@ const[imagecategory,setImagecategory]=useState(localStorage.getItem("categorydat
 
   useEffect(() => {
     fetchImages2();
-  }, [imagecategory,location]);
+  }, [imagecategory,location,serch]);
 useEffect(()=>{
   setImages([])
   setPage(1)
-},[imagecategory,location])
+},[imagecategory,location,serch])
   const [imageLoaded, setImageLoaded] = useState(false);
   const handleImageLoad = () => {
     setImageLoaded(true);
