@@ -114,7 +114,7 @@ useEffect(()=>{
             {/* Render fake loading boxes */}
             {[1, 2].map((index) => (
               <Card key={index} className={`card-custom ${window.innerWidth <= 768 ? 'mobile-card' : ''}`}>
-                {/* ... (rest of your card code) */}
+                
                 <Card.Body style={{ padding: 0 }}>
                   <div className="placeholder-box"></div>
                 </Card.Body>
