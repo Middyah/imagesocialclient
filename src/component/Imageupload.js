@@ -6,7 +6,7 @@ import apiUrl from '../ApiAxios';
 import { useNavigate } from 'react-router-dom';
 
 const ImageUpload = ({ onUpload, title, uploadreff, setuploadreff, selectedCategory, setShowModal, selectedLocation,
-  Contact,Link, Productname }) => {
+  Contact, Link, Productname }) => {
   const navigate = useNavigate();
   const [selectedFile, setSelectedFile] = useState(null);
   const [base64Image, setBase64Image] = useState('');
@@ -371,7 +371,7 @@ const Upload = () => {
             {/* <Modal.Header closeButton>
             <Modal.Title>Upload Image</Modal.Title>
           </Modal.Header> */}
-            <Modal.Body className='modelbody'>
+            <Modal.Body className='modelbody' style={{ height: 'auto' }}> {/* Set height to auto */}
               <>
                 <input
                   type="text"
