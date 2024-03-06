@@ -97,4 +97,7 @@
   .center-component > img {
     height: 40px;
   }
+  .category-dropdown {
+    margin-left:10px;
+  }
 }
