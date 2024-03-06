@@ -10,18 +10,10 @@
     border-radius: 25px;
 }
 
-/* For screens smaller than 768px (tablets) */
-@media screen and (max-width: 767px) {
-    .carouselitem {
-        height: 39px;
-        width: 95px !important;
-    }
-}
-
 /* For screens smaller than 576px (mobile devices) */
 @media screen and (max-width: 480px) {
     .carouselitem {
         height: 29px; /* Adjusted height for smaller screens */
-        width: 95px !important;  /* Adjusted width for smaller screens */
+        width: 85px !important;  /* Adjusted width for smaller screens */
     }
 }
