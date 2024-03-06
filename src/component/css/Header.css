@@ -98,6 +98,6 @@
     height: 40px;
   }
   .category-dropdown {
-    margin-left:10px;
+    margin-left:10px !important;
   }
 }
