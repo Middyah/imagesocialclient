@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ItemsCarousel from 'react-items-carousel';
 import { useNavigate } from 'react-router-dom';
-
+import './css/carousalitem.css';
 
 
 export default () => {
