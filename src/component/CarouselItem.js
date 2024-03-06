@@ -30,6 +30,7 @@ export default () => {
     { value: 15, label: "What's new" },
     { value: 1, label: 'Product' },
     { value: 2, label: 'Service' },
+    { value: 16, label: 'Government' },
     { value: 3, label: 'Health' },
     { value: 4, label: 'Education' },
     { value: 5, label: 'Job' },

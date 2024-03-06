@@ -81,6 +81,19 @@ export default function Imagebutton({ id, Contact }) {
     window.open(`tel:${Contact}`);
   };
 
+  // useEffect(() => {
+  //   const fetchShareCount = async () => {
+  //     try {
+  //       const res = await apiUrl.get(`/api/admin/post/sharecount/${id}`);
+  //       setShareCount(res.data.shareCount);
+  //     } catch (error) {
+  //       console.error('Error fetching share count:', error);
+  //     }
+  //   };
+
+  //   fetchShareCount();
+  // }, [id]);
+
   return (
     <>
       <div className='allicons'>
