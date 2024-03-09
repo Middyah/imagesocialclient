@@ -6,31 +6,14 @@ import apiUrl from '../ApiAxios';
 import { useNavigate } from 'react-router-dom';
 import './css/ImageUpload.css';  // Import the CSS file
 import icon from '../component/image/upload.png'
-// import Navbar2 from './Navbar2'
 
-
-const ImageUpload = ({ onUpload, title, uploadreff, setuploadreff, selectedCategory, setShowModal, selectedLocation,
-  Contact, Link, Productname }) => {
+const ImageUpload = ({ onUpload, title, uploadreff, setuploadreff, selectedCategory, setShowModal, selectedLocation, Contact, Link, Productname }) => {
   const navigate = useNavigate();
   const [selectedFile, setSelectedFile] = useState(null);
-
   const [base64Image, setBase64Image] = useState('');
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
-
-  const fileToBase64 = (file) => {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-
-      reader.onload = () => {
-        resolve(reader.result);
-      };
-
-      reader.onerror = reject;
-
-      reader.readAsDataURL(file);
-    });
-  };
+  const [uploading, setUploading] = useState(false); // State to manage button disabled state
 
   const handleFileChange = async (e) => {
     setSelectedFile(e.target.files[0]);
@@ -41,54 +24,44 @@ const ImageUpload = ({ onUpload, title, uploadreff, setuploadreff, selectedCateg
   const convertToBase64 = (file) => {
     return new Promise((resolve, reject) => {
       const reader = new FileReader();
-
       reader.onload = () => {
         resolve(reader.result);
       };
-
       reader.onerror = reject;
-
       reader.readAsDataURL(file);
     });
   };
 
   const uploadImage = async () => {
     if (!selectedFile || !selectedCategory || !selectedLocation || !Productname) {
-      // If any of the mandatory fields are not filled, set an error message
       setErrorMessage('Please fill all mandatory fields.');
       return;
     }
-   
-    if (selectedFile && Productname && selectedLocation && selectedCategory) {
-      setLoading(true);
-      const formData = new FormData();
-      formData.append('image', selectedFile);
-      formData.append('post_title', title);
-      formData.append('category', selectedCategory);
-      formData.append('location', selectedLocation);
-      formData.append('Link', Link);
-      formData.append('Contactnumber', Contact);
-      formData.append('Productname', Productname);
-      try {
-        await apiUrl.post('/api/userpost/newupload', formData, {
-          headers: {
-            'Content-Type': 'multipart/form-data',
-          },
-        });
+    setUploading(true); // Disable the button when uploading starts
 
-        // Optionally, you can notify the parent component that the upload is complete
-        // onUpload(base64);
-      } catch (error) {
-        console.error('Error uploading image:', error);
-      } finally {
-        setLoading(false);
-        setErrorMessage('');
-        // window.location.reload();
-        localStorage.setItem("reff", new Date().getMilliseconds())
-        setuploadreff('');
-        // navigate('/mainarea');
-        setShowModal(false)
-      }
+    const formData = new FormData();
+    formData.append('image', selectedFile);
+    formData.append('post_title', title);
+    formData.append('category', selectedCategory);
+    formData.append('location', selectedLocation);
+    formData.append('Link', Link);
+    formData.append('Contactnumber', Contact);
+    formData.append('Productname', Productname);
+
+    try {
+      await apiUrl.post('/api/userpost/newupload', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+      setErrorMessage('');
+      onUpload(base64Image);
+    } catch (error) {
+      console.error('Error uploading image:', error);
+    } finally {
+      setUploading(false); // Enable the button after API response
+      setuploadreff('');
+      setShowModal(false);
     }
   };
 
@@ -105,7 +78,7 @@ const ImageUpload = ({ onUpload, title, uploadreff, setuploadreff, selectedCateg
         {errorMessage && <div style={{ color: 'red' }}>{errorMessage}</div>}
     
         <label htmlFor="file-input" className="file-label">
-          <img src={base64Image || ('icon')} alt="Upload Icon" className='modelimage' />
+          <img src={base64Image || icon} alt="Upload Icon" className='modelimage' />
           <input id="file-input" accept="image/*" type="file" onChange={handleFileChange} style={{ display: 'none' }} />
         </label>
         {loading && (
@@ -122,36 +95,30 @@ const ImageUpload = ({ onUpload, title, uploadreff, setuploadreff, selectedCateg
     </div>
   );
 };
+
 const Upload = () => {
   const [showModal, setShowModal] = useState(false);
   const [title, setTitle] = useState('');
   const handleClose = () => setShowModal(false);
-  
   const handleShow = () => setShowModal(true);
+  const [selectedCategory, setselectedCategory] = useState('');
+  const [selectedLocation, setselectedLocation] = useState('');
+  const [Contact, setContact] = useState('');
+  const [Link, setLink] = useState('');
+  const [Productname, setProductname] = useState('');
+  const [uploadreff, setuploadreff] = useState('');
+  const [uploading, setUploading] = useState(false); // State to manage button disabled state
 
-  const handleUploadComplete = (base64Image) => {
-    // Handle the base64Image data as needed (e.g., send it to another component or perform actions)
-    console.log('Uploaded image in base64:', base64Image);
+  const handleCategoryChange = (event) => {
+    setselectedCategory(event.target.value);
   };
 
-  // const options = [
-  //   // 'All',
-  //   // "What's new",
-  //   'Select the Category',
-  //   'Product',
-  //   'Service',
-  //   'Health',
-  //   'Education',
-  //   'Job',
-  //   'Lifestyle',
-  //   'Entertainment',
-  //   'Technology',
-  //   'Finance',
-  //   'Sports',
-  //   'Real Estate',
-  //   'Others',
-  //   'Website Activity',
-  // ];
+  const handleLocation = (event) => {
+    setselectedLocation(event.target.value);
+  };
+
+  const countries = [
+    'Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Antigua and Barbuda', 'Argentina', 'Armenia', 'Australia', 'Austria', 'Azerbaijan', 'Bahamas', 'Bahrain', 'Bangladesh', 'Barbados', 'Belarus', 'Belgium', 'Belize', 'Benin', 'Bhutan', 'Bolivia', 'Bosnia and Herzegovina', 'Botswana', 'Brazil', 'Brunei', 'Bulgaria', 'Burkina Faso', 'Burundi', 'Cabo Verde', 'Cambodia', 'Cameroon', 'Canada', 'Central African Republic', 'Chad', 'Chile', 'China', 'Colombia', 'Comoros', 'Congo', 'Costa Rica', 'Croatia', 'Cuba', 'Cyprus', 'Czech Republic', 'Denmark', 'Djibouti', 'Dominica', 'Dominican Republic', 'East Timor (Timor-Leste)', 'Ecuador', 'Egypt', 'El Salvador', 'Equatorial Guinea', 'Eritrea', 'Estonia', 'Eswatini', 'Ethiopia', 'Fiji', 'Finland', 'France', 'Gabon', 'Gambia', 'Georgia', 'Germany', 'Ghana', 'Greece', 'Grenada', 'Guatemala', 'Guinea', 'Guinea-Bissau', 'Guyana', 'Haiti', 'Honduras', 'Hungary', 'Iceland', 'India', 'Indonesia', 'Iran', 'Iraq', 'Ireland', 'Israel', 'Italy', 'Jamaica', 'Japan', 'Jordan', 'Kazakhstan', 'Kenya', 'Kiribati', 'Korea, North', 'Korea, South', 'Kosovo', 'Kuwait', 'Kyrgyzstan', 'Laos', 'Latvia', 'Lebanon', 'Lesotho', 'Liberia', 'Libya', 'Liechtenstein', 'Lithuania', 'Luxembourg', 'Madagascar', 'Malawi', 'Malaysia', 'Maldives', 'Mali', 'Malta', 'Marshall Islands', 'Mauritania', 'Mauritius', 'Mexico', 'Micronesia', 'Moldova', 'Monaco', 'Mongolia', 'Montenegro', 'Morocco', 'Mozambique', 'Myanmar (Burma)', 'Namibia', 'Nauru', 'Nepal', 'Netherlands', 'New Zealand', 'Nicaragua', 'Niger', 'Nigeria', 'North Macedonia', 'Norway', 'Oman', 'Pakistan', 'Palau', 'Panama', 'Papua New Guinea', 'Paraguay', 'Peru', 'Philippines', 'Poland', 'Portugal', 'Qatar', 'Romania', 'Russia', 'Rwanda', 'Saint Kitts and Nevis', 'Saint Lucia', 'Saint Vincent and the Grenadines', 'Samoa', 'San Marino', 'Sao Tome and Principe', 'Saudi Arabia', 'Senegal', 'Serbia', 'Seychelles', 'Sierra Leone', 'Singapore', 'Slovakia', 'Slovenia', 'Solomon Islands', 'Somalia', 'South Africa', 'South Sudan', 'Spain', 'Sri Lanka', 'Sudan', 'Suriname', 'Sweden', 'Switzerland', 'Syria', 'Taiwan', 'Tajikistan', 'Tanzania', 'Thailand', 'Togo', 'Tonga', 'Trinidad and Tobago', 'Tunisia', 'Turkey', 'Turkmenistan', 'Tuvalu', 'Uganda', 'Ukraine', 'United Arab Emirates', 'United Kingdom', 'United States', 'Uruguay', 'Uzbekistan', 'Vanuatu', 'Vatican City', 'Venezuela', 'Vietnam', 'Yemen', 'Zambia', 'Zimbabwe'];
 
   const options = [
     { value: 'Select the Category', label: 'Select the Category*' },
@@ -172,232 +139,9 @@ const Upload = () => {
     { value: 14, label: 'Website Activity' },
   ];
 
-
-
-
-  // const countries = [
-  //   'Select a country',
-  //   'United States',
-  //   'United Kingdom',
-  //   'Canada',
-  //   'Australia',
-  //   'Pakistan',
-
-  // ];
-
-  const countries = [
+  const handleUpload = () => {
    
-    'Afghanistan',
-    'Albania',
-    'Algeria',
-    'Andorra',
-    'Angola',
-    'Antigua and Barbuda',
-    'Argentina',
-    'Armenia',
-    'Australia',
-    'Austria',
-    'Azerbaijan',
-    'Bahamas',
-    'Bahrain',
-    'Bangladesh',
-    'Barbados',
-    'Belarus',
-    'Belgium',
-    'Belize',
-    'Benin',
-    'Bhutan',
-    'Bolivia',
-    'Bosnia and Herzegovina',
-    'Botswana',
-    'Brazil',
-    'Brunei',
-    'Bulgaria',
-    'Burkina Faso',
-    'Burundi',
-    'Cabo Verde',
-    'Cambodia',
-    'Cameroon',
-    'Canada',
-    'Central African Republic',
-    'Chad',
-    'Chile',
-    'China',
-    'Colombia',
-    'Comoros',
-    'Congo',
-    'Costa Rica',
-    'Croatia',
-    'Cuba',
-    'Cyprus',
-    'Czech Republic',
-    'Denmark',
-    'Djibouti',
-    'Dominica',
-    'Dominican Republic',
-    'East Timor (Timor-Leste)',
-    'Ecuador',
-    'Egypt',
-    'El Salvador',
-    'Equatorial Guinea',
-    'Eritrea',
-    'Estonia',
-    'Eswatini',
-    'Ethiopia',
-    'Fiji',
-    'Finland',
-    'France',
-    'Gabon',
-    'Gambia',
-    'Georgia',
-    'Germany',
-    'Ghana',
-    'Greece',
-    'Grenada',
-    'Guatemala',
-    'Guinea',
-    'Guinea-Bissau',
-    'Guyana',
-    'Haiti',
-    'Honduras',
-    'Hungary',
-    'Iceland',
-    'India',
-    'Indonesia',
-    'Iran',
-    'Iraq',
-    'Ireland',
-    'Israel',
-    'Italy',
-    'Jamaica',
-    'Japan',
-    'Jordan',
-    'Kazakhstan',
-    'Kenya',
-    'Kiribati',
-    'Korea, North',
-    'Korea, South',
-    'Kosovo',
-    'Kuwait',
-    'Kyrgyzstan',
-    'Laos',
-    'Latvia',
-    'Lebanon',
-    'Lesotho',
-    'Liberia',
-    'Libya',
-    'Liechtenstein',
-    'Lithuania',
-    'Luxembourg',
-    'Madagascar',
-    'Malawi',
-    'Malaysia',
-    'Maldives',
-    'Mali',
-    'Malta',
-    'Marshall Islands',
-    'Mauritania',
-    'Mauritius',
-    'Mexico',
-    'Micronesia',
-    'Moldova',
-    'Monaco',
-    'Mongolia',
-    'Montenegro',
-    'Morocco',
-    'Mozambique',
-    'Myanmar (Burma)',
-    'Namibia',
-    'Nauru',
-    'Nepal',
-    'Netherlands',
-    'New Zealand',
-    'Nicaragua',
-    'Niger',
-    'Nigeria',
-    'North Macedonia',
-    'Norway',
-    'Oman',
-    'Pakistan',
-    'Palau',
-    'Panama',
-    'Papua New Guinea',
-    'Paraguay',
-    'Peru',
-    'Philippines',
-    'Poland',
-    'Portugal',
-    'Qatar',
-    'Romania',
-    'Russia',
-    'Rwanda',
-    'Saint Kitts and Nevis',
-    'Saint Lucia',
-    'Saint Vincent and the Grenadines',
-    'Samoa',
-    'San Marino',
-    'Sao Tome and Principe',
-    'Saudi Arabia',
-    'Senegal',
-    'Serbia',
-    'Seychelles',
-    'Sierra Leone',
-    'Singapore',
-    'Slovakia',
-    'Slovenia',
-    'Solomon Islands',
-    'Somalia',
-    'South Africa',
-    'South Sudan',
-    'Spain',
-    'Sri Lanka',
-    'Sudan',
-    'Suriname',
-    'Sweden',
-    'Switzerland',
-    'Syria',
-    'Taiwan',
-    'Tajikistan',
-    'Tanzania',
-    'Thailand',
-    'Togo',
-    'Tonga',
-    'Trinidad and Tobago',
-    'Tunisia',
-    'Turkey',
-    'Turkmenistan',
-    'Tuvalu',
-    'Uganda',
-    'Ukraine',
-    'United Arab Emirates',
-    'United Kingdom',
-    'United States',
-    'Uruguay',
-    'Uzbekistan',
-    'Vanuatu',
-    'Vatican City',
-    'Venezuela',
-    'Vietnam',
-    'Yemen',
-    'Zambia',
-    'Zimbabwe',
-  ];
-  const [selectedCategory, setselectedCategory] = useState('');
-  const [selectedLocation, setselectedLocation] = useState('');
-  const [Contact, setContact] = useState('');
-  const [Link, setLink] = useState('');
-  const [Productname, setProductname] = useState('');
-
-  const handleCategoryChange = (event) => {
-    setselectedCategory(event.target.value);
-  };
-  const handleLocation = (event) => {
-    setselectedLocation(event.target.value);
-  };
-  console.log(selectedLocation, "selectedLocation");
-  const [uploadreff, setuploadreff] = useState('');
-
-  const uploadImage = () => {
+    setUploading(true);
     setuploadreff(new Date().getMilliseconds());
   };
 
@@ -411,9 +155,9 @@ const Upload = () => {
             border: '1px solid #000',
             marginLeft: '-3px',
             marginTop: '5px',
-            padding: '7px', // Add padding
-            borderRadius: '80px', // Add border-radius for rounded corners
-            background: '#fff', // Set the background color to white
+            padding: '7px',
+            borderRadius: '80px',
+            background: '#fff',
           }}
           onClick={handleShow}
         >
@@ -422,8 +166,7 @@ const Upload = () => {
         <div className='kkkk'>
           <Modal show={showModal} onHide={handleClose} centered >
             <Modal.Header className="custom-modal-header" closeButton>
-            {/* <Modal.Title>Upload Image</Modal.Title> */}
-          </Modal.Header>
+            </Modal.Header>
             <Modal.Body className='modelbody' >
               <>
                 <input
@@ -434,17 +177,22 @@ const Upload = () => {
                   style={{ marginLeft: '11px' }}
                   className='inputtext'
                 />
-               <select name="location" id="location" value={selectedLocation} onChange={handleLocation} className='input' style={{ marginLeft: '11px' }}>
-  <option value="" disabled selected>Select a location</option>
-  {countries.map((option, index) => (
-    <option key={index} value={index}>
-      {option}
-    </option>
-  ))}
-</select>
+                <select
+                  name="location"
+                  id="location"
+                  value={selectedLocation}
+                  onChange={handleLocation}
+                  className='input'
+                  style={{ marginLeft: '11px' }}
+                >
+                  <option value="" disabled selected>Select a location</option>
+                  {countries.map((option, index) => (
+                    <option key={index} value={option}>
+                      {option}
+                    </option>
+                  ))}
+                </select>
 
-                
-                
                 <select
                   name="category"
                   id="category"
@@ -461,7 +209,6 @@ const Upload = () => {
                 </select>
 
                 <>
-
                   <input
                     type="text"
                     placeholder="Contact"
@@ -470,11 +217,10 @@ const Upload = () => {
                     style={{ marginLeft: '11px' }}
                     className='inputtext'
                   />
-
                 </>
               </>
               <ImageUpload
-                onUpload={handleUploadComplete}
+                onUpload={() => setUploading(false)}
                 title={title}
                 selectedCategory={selectedCategory}
                 uploadreff={uploadreff}
@@ -504,14 +250,11 @@ const Upload = () => {
                 />
               </div>
               <div style={{ justifyContent: "center", alignItems: "center", textAlign: "center", paddingTop: "79px" }}>
-                <Button onClick={uploadImage} >
+                <Button onClick={handleUpload} disabled={uploading}> {/* Disable the button based on uploading state */}
                   Upload
                 </Button>
               </div>
             </Modal.Body>
-            {/* <Modal.Footer style={{justifyContent:"center",alignItems:"center",textAlign:"center",backgroundColor:"#0000008c"}}>
-            
-          </Modal.Footer> */}
           </Modal>
         </div>
       </center>
