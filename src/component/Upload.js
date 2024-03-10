@@ -62,6 +62,8 @@ const ImageUpload = ({ onUpload, title, uploadreff, setuploadreff, selectedCateg
       setUploading(false); // Enable the button after API response
       setuploadreff('');
       setShowModal(false);
+
+      
     }
   };
 
@@ -164,7 +166,7 @@ const Upload = () => {
           ➕
         </Button>
         <div className='kkkk'>
-          <Modal show={showModal} onHide={handleClose} centered >
+          {/* <Modal show={showModal} onHide={handleClose} centered >
             <Modal.Header className="custom-modal-header" closeButton>
             </Modal.Header>
             <Modal.Body className='modelbody' >
@@ -250,12 +252,106 @@ const Upload = () => {
                 />
               </div>
               <div style={{ justifyContent: "center", alignItems: "center", textAlign: "center", paddingTop: "79px" }}>
-                <Button onClick={handleUpload} disabled={uploading}> {/* Disable the button based on uploading state */}
+                <Button onClick={handleUpload} disabled={uploading}> 
                   Upload
                 </Button>
               </div>
             </Modal.Body>
-          </Modal>
+          </Modal> */}
+
+<Modal show={showModal} onHide={handleClose} centered className="custom-modal">
+  <Modal.Header className="custom-modal-header" closeButton>
+  </Modal.Header>
+  <Modal.Body className='modelbody' >
+    <>
+      <input
+        type="text"
+        placeholder="Name"
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
+        style={{ marginLeft: '11px' }}
+        className='inputtext'
+      />
+      <select
+        name="location"
+        id="location"
+        value={selectedLocation}
+        onChange={handleLocation}
+        className='input'
+        style={{ marginLeft: '11px' }}
+      >
+        <option value="" disabled selected>Select a location</option>
+        {countries.map((option, index) => (
+          <option key={index} value={option}>
+            {option}
+          </option>
+        ))}
+      </select>
+
+      <select
+        name="category"
+        id="category"
+        value={selectedCategory}
+        onChange={handleCategoryChange}
+        className='input'
+        style={{ marginLeft: '11px' }}
+      >
+        {options.map((option) => (
+          <option key={option.value} value={option.value}>
+            {option.label}
+          </option>
+        ))}
+      </select>
+
+      <>
+        <input
+          type="text"
+          placeholder="Contact"
+          value={Contact}
+          onChange={(e) => setContact(e.target.value)}
+          style={{ marginLeft: '11px' }}
+          className='inputtext'
+        />
+      </>
+    </>
+    <ImageUpload
+      onUpload={() => setUploading(false)}
+      title={title}
+      selectedCategory={selectedCategory}
+      uploadreff={uploadreff}
+      setuploadreff={setuploadreff}
+      setShowModal={setShowModal}
+      selectedLocation={selectedLocation}
+      Contact={Contact}
+      Link={Link}
+      Productname={Productname}
+    />
+    <div className='twoinput'>
+      <input
+        type="text"
+        placeholder="Product Name*"
+        value={Productname}
+        onChange={(e) => setProductname(e.target.value)}
+        style={{ marginLeft: '11px', marginBottom: "10px", marginTop: "5px" }}
+        className='inputtext'
+      />
+      <input
+        type="text"
+        placeholder="Product Link"
+        value={Link}
+        onChange={(e) => setLink(e.target.value)}
+        style={{ marginLeft: '11px' }}
+        className='inputtext'
+      />
+    </div>
+    <div style={{ justifyContent: "center", alignItems: "center", textAlign: "center", paddingTop: "79px" }}>
+      <Button onClick={handleUpload} disabled={uploading}> {/* Disable the button based on uploading state */}
+        Upload
+      </Button>
+    </div>
+  </Modal.Body>
+</Modal>
+
         </div>
       </center>
     </div>
