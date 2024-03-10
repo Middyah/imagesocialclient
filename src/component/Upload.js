@@ -146,6 +146,13 @@ const Upload = () => {
     setUploading(true);
     setuploadreff(new Date().getMilliseconds());
   };
+  const handleNameChange = (e) => {
+    const value = e.target.value;
+    // Limit input to 40 characters
+    if (value.length <= 40) {
+      setTitle(value);
+    }
+  };
 
   return (
     <div>
@@ -268,7 +275,8 @@ const Upload = () => {
         type="text"
         placeholder="Name"
         value={title}
-        onChange={(e) => setTitle(e.target.value)}
+        // onChange={(e) => setTitle(e.target.value)}
+        onChange={handleNameChange}
         style={{ marginLeft: '11px' }}
         className='inputtext'
       />
@@ -345,6 +353,12 @@ const Upload = () => {
       />
     </div>
     <div style={{ justifyContent: "center", alignItems: "center", textAlign: "center", paddingTop: "79px" }}>
+    {uploading && ( // Show the spinner when uploading
+    <div className="spinner-border" role="status">
+      <span className="sr-only"></span>
+    </div>
+  )}
+  <br></br>
       <Button onClick={handleUpload} disabled={uploading}> {/* Disable the button based on uploading state */}
         Upload
       </Button>

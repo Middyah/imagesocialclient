@@ -12,7 +12,7 @@ import './css/ImageGalleryPage.css'; // Import the CSS file
 
 
 const ImageGalleryPage = ({serch}) => {
-  // ... (rest of the code remains unchanged)
+  
   const searchParams = new URLSearchParams(document.location.search)
   let category = searchParams.get('category')
   let productname = searchParams.get('Productname');
@@ -22,6 +22,8 @@ const ImageGalleryPage = ({serch}) => {
   const [page, setPage] = useState(1);
   const [images, setImages] = useState([]);
   const [isLoading, setIsLoading] = useState([])
+  const [isFirstSearchDone, setIsFirstSearchDone] = useState(false);
+
   const handlePagination = () => {
     if (images && images.length > 0) {
       setPage((prevPage) => prevPage + 1);
@@ -53,6 +55,7 @@ const[imagecategory,setImagecategory]=useState(localStorage.getItem("categorydat
     try {
       // alert(2)
       let res = await apiUrl.get(`/api/userpost/getallpost?page=${page}&limit=7&category=${imagecategory?imagecategory:(category === null ? "" : category)}&&Productname=${serch?serch:(productname === null ? "": productname)}&location=${location !== null ? location : ""}&_id=${id?id:""}`)
+      setIsFirstSearchDone(true);
       setImgdata(res.data.posts)
       setImages((prevData) => [...images, ...res.data.posts])
       // setImages([...res.data.posts])
@@ -81,6 +84,7 @@ const[imagecategory,setImagecategory]=useState(localStorage.getItem("categorydat
   //   setImages((prevData) => [...images, ...imgdata]) 
   // },[page,imgdata.length])
   useEffect(() => {
+    setIsFirstSearchDone(false); 
     fetchImages();
   }, [page, reff]);
 
@@ -106,8 +110,7 @@ useEffect(()=>{
   return (
     <div className="image-gallery-container">
       
-      {/* <NavbarPost /> */}
-      {/* <CustomNavbar /> */}
+     
       <div className="gallery-container">
       {isLoading && images.length === 0 && (
           <div className="loading-boxes">
@@ -122,6 +125,10 @@ useEffect(()=>{
             ))}
           </div>
         )}
+
+{isFirstSearchDone && images.length === 0 && (
+    <div className="no-search-results">No search-related data available</div>
+)}
 
         <InfiniteScroll
           dataLength={images.length}
