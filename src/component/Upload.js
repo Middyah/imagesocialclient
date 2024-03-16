@@ -267,7 +267,7 @@ const Upload = () => {
           </Modal> */}
 
 <Modal show={showModal} onHide={handleClose} centered className="custom-modal">
-  <Modal.Header className="custom-modal-header" closeButton>
+  <Modal.Header  closeButton>
   </Modal.Header>
   <Modal.Body className='modelbody' >
     <>
