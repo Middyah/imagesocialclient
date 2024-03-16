@@ -3,6 +3,7 @@ import '../component/css/CustomNavbar.css'; // Update your CSS file for Navbar s
 import CustomLocationDropdown from './LocationDropdown'; // Update your LocationComponent
 import CustomPopupPage from './PopupPage';
 import logo from './image/logo.png';
+
 const Navbar = () => {
   return (
     <div className="custom-navbar-content">
@@ -17,7 +18,6 @@ const Navbar = () => {
             style={{ marginBottom: '20px', marginTop: '50px' }}
           />
         </div>
-      
       <div className="custom-right-component">
         <CustomPopupPage />
       </div>

@@ -225,6 +225,8 @@ useEffect(()=>{
   ];
   
   // Add more countries as needed
+
+  // This is package problem for alignment if you needs to select country single selection with searching functionlity then it will possible.
   
 let countrydata=countries.map((item,index)=>{
   return{
@@ -233,31 +235,15 @@ let countrydata=countries.map((item,index)=>{
 })
   return (
     <div className="location-dropdown-container">
-      <label htmlFor="country" className="dropdown-label">
-        
-      </label>
+      <label htmlFor="country" className="dropdown-label"></label>
       <MultiSelect
-                      options={countrydata}
-                      value={selectedCountry}
-                      onChange={setSelectedCountry}
-                      labelledBy="Select a country"
-                      className="multi_select_drp"
-                      name="anonimize"
-                      // hasSelectAll={selectedCountry.length > 1 ? true : false}
-                      // overrideStrings={{
-                      //   selectSomeItems: 'Select',
-                      //   allItemsAreSelected: selectedCountry.length > 1 ? "All country are selected." : selectedCountry,
-                      //   selectAll: 'Select a country',
-                      //   search: 'Search',
-                      // }}
-                    />
-      {/* <select id="country" value={selectedCountry} onChange={handleCountryChange} className="dropdown-select">
-        {countries.map((country, index) => (
-          <option key={index} value={index}>
-            {country}
-          </option>
-        ))}
-      </select> */}
+        options={countrydata}
+        value={selectedCountry}
+        onChange={setSelectedCountry}
+        labelledBy="Select a country"
+        className="multi_select_drp"
+        name="anonimize"
+      />
     </div>
   );
 };
