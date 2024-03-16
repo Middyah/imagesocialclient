@@ -9,7 +9,7 @@
 }
 
 .custom-left-component {
-  width: 25%;
+  width: 50%;
   /* Add styling for individual components if needed */
 }
 
@@ -25,7 +25,8 @@
 
   .custom-right-component{
     align-items: flex-end;
-    padding: 0;
+    padding-right: 50px;
+    width: 30px;
   }
   .custom-left-component,
   .custom-right-component {

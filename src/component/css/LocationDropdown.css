@@ -9,11 +9,14 @@
     text-align: left;
     margin-top: 20px;
     margin-left: 30px;
+    padding-right: 100px;
+    padding-left: 50px;
   }
   
   .dropdown-label {
     font-size: 16px;
     margin-right: 10px;
+
   }
 
 /* LocationDropdown.css */
