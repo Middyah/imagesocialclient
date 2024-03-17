@@ -39,7 +39,9 @@ const ImageUpload = ({ onUpload, title, uploadreff, setuploadreff, selectedCateg
       reader.readAsDataURL(file);
     });
   };
-
+  const currentDate = new Date();
+    const uniqueNumber = currentDate.getTime() + currentDate.getDay() + currentDate.getMinutes();
+const[combineimg,setCombineimg]=useState(uniqueNumber)
   const uploadImage = async () => {
     if (!selectedFiles.length || !selectedCategory || !selectedLocation || !Productname) {
       setErrorMessage('Please fill all mandatory fields.');
@@ -64,6 +66,7 @@ const ImageUpload = ({ onUpload, title, uploadreff, setuploadreff, selectedCateg
       formData.append('Link', Link);
       formData.append('Contactnumber', Contact);
       formData.append('Productname', Productname);
+      formData.append('combineimg', combineimg);
       return formData;
     });
 
@@ -103,6 +106,7 @@ const ImageUpload = ({ onUpload, title, uploadreff, setuploadreff, selectedCateg
     setUploading(false); // Enable the button after API response
     setuploadreff('');
     setShowModal(false);
+    setCombineimg("")
   }
 };
 

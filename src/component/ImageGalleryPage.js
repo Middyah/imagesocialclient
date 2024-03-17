@@ -8,6 +8,7 @@ import Imagebutton from './Imagebutton';
 import NavbarPost from './NavbarPost';
 import CustomNavbar from './CustomNavbar';
 import './css/ImageGalleryPage.css'; // Import the CSS file
+import Carousel from 'react-bootstrap/Carousel';
 
 
 
@@ -106,6 +107,25 @@ useEffect(()=>{
   }
   console.log(images, page, "hhh", imageLoaded);
 
+  function groupById() {
+    const groupedArrays = {};
+
+    images.forEach(obj => {
+        const id = obj.combineimg;
+        if (!groupedArrays[id]) {
+            groupedArrays[id] = [];
+        }
+        groupedArrays[id].push(obj);
+    });
+
+    return Object.values(groupedArrays);
+}
+
+
+
+const result = groupById();
+console.log(result,"combine");
+
   
   return (
     <div className="image-gallery-container">
@@ -145,7 +165,12 @@ useEffect(()=>{
           }
         >
           {/* {images.length === 0 && <div>No Data Found</div>} */}
-          {images.map((item) => (
+          {result.map((subArray,index) => (
+            <div key={index}>
+            {console.log(subArray,"subArray")}
+            {subArray.length===1?(
+              <>
+              {subArray.map((item) => (
             <Card
               key={item._id}
               className={`card-custom ${window.innerWidth <= 768 ? 'mobile-card' : ''}`}
@@ -174,6 +199,53 @@ useEffect(()=>{
                 <Imagebutton id={item._id} Contact={item.Contactnumber} />
               </Card.Body>
             </Card>
+            ))}
+              </>
+            ):(
+              <>
+  {subArray.slice(0,1).map((cardItem) => (
+    <Card
+      key={cardItem._id}
+      className={`card-custom ${window.innerWidth <= 768 ? 'mobile-card' : ''}`}
+    >
+      {/* ... (rest of your card code) */}
+      <Card.Text>
+        <div className="headtop">
+          <h5 className="card-title">{cardItem.post_title}</h5>
+          {cardItem.Link && (
+            <a className="link" href={cardItem.Link} target="_blank" rel="noopener noreferrer">
+              Visit
+            </a>
+          )}
+        </div>
+      </Card.Text>
+      {!imageLoaded && (
+        <Card.Img variant="top" src="holder.js/100px180" className="placeholder-image" />
+      )}
+
+      <Carousel slide={false}>
+        {subArray.map((carouselItem) => (
+          <Carousel.Item key={carouselItem._id}>
+            <Card.Img
+              variant="top"
+              src={`${process.env.REACT_APP_API_URL}/api/userpost/images/${carouselItem._id}`}
+              className="main-image"
+              onLoad={handleImageLoad}
+            />
+          </Carousel.Item>
+        ))}
+      </Carousel>
+
+      <Card.Body style={{ padding: 0 }}>
+        <Imagebutton id={cardItem._id} Contact={cardItem.Contactnumber} />
+      </Card.Body>
+    </Card>
+  ))}
+</>
+
+            )}
+         
+            </div>
           ))}
         </InfiniteScroll>
       </div>
