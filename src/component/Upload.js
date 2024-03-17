@@ -9,16 +9,24 @@ import icon from '../component/image/upload.png'
 
 const ImageUpload = ({ onUpload, title, uploadreff, setuploadreff, selectedCategory, setShowModal, selectedLocation, Contact, Link, Productname }) => {
   const navigate = useNavigate();
-  const [selectedFile, setSelectedFile] = useState(null);
+  const [selectedFiles, setSelectedFiles] = useState([]);
+  const [base64Images, setBase64Images] = useState([]);
   const [base64Image, setBase64Image] = useState('');
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [uploading, setUploading] = useState(false); // State to manage button disabled state
 
+  // const handleFileChange = async (e) => {
+  //   setSelectedFile(e.target.files[0]);
+  //   const base64 = await convertToBase64(e.target.files[0]);
+  //   setBase64Image(base64);
+  // };
   const handleFileChange = async (e) => {
-    setSelectedFile(e.target.files[0]);
-    const base64 = await convertToBase64(e.target.files[0]);
-    setBase64Image(base64);
+    const files = Array.from(e.target.files);
+    const base64Array = await Promise.all(files.map(file => convertToBase64(file)));
+    setSelectedFiles(files);
+    setBase64Images(base64Array);
+    console.log("Base64 Images Array:", base64Array);
   };
 
   const convertToBase64 = (file) => {
@@ -33,39 +41,70 @@ const ImageUpload = ({ onUpload, title, uploadreff, setuploadreff, selectedCateg
   };
 
   const uploadImage = async () => {
-    if (!selectedFile || !selectedCategory || !selectedLocation || !Productname) {
+    if (!selectedFiles.length || !selectedCategory || !selectedLocation || !Productname) {
       setErrorMessage('Please fill all mandatory fields.');
       return;
     }
     setUploading(true); // Disable the button when uploading starts
 
-    const formData = new FormData();
-    formData.append('image', selectedFile);
-    formData.append('post_title', title);
-    formData.append('category', selectedCategory);
-    formData.append('location', selectedLocation);
-    formData.append('Link', Link);
-    formData.append('Contactnumber', Contact);
-    formData.append('Productname', Productname);
+    // const formData = new FormData();
+    // formData.append('image', selectedFile);
+    // formData.append('post_title', title);
+    // formData.append('category', selectedCategory);
+    // formData.append('location', selectedLocation);
+    // formData.append('Link', Link);
+    // formData.append('Contactnumber', Contact);
+    // formData.append('Productname', Productname);
+    const formDataArray = selectedFiles.map((file, index) => {
+      const formData = new FormData();
+      formData.append('image', file);
+      formData.append('post_title', title);
+      formData.append('category', selectedCategory);
+      formData.append('location', selectedLocation);
+      formData.append('Link', Link);
+      formData.append('Contactnumber', Contact);
+      formData.append('Productname', Productname);
+      return formData;
+    });
 
-    try {
-      await apiUrl.post('/api/userpost/newupload', formData, {
+  //   try {
+  //     await apiUrl.post('/api/userpost/newupload', formData, {
+  //       headers: {
+  //         'Content-Type': 'multipart/form-data',
+  //       },
+  //     });
+  //     setErrorMessage('');
+  //     onUpload(base64Image);
+  //   } catch (error) {
+  //     console.error('Error uploading image:', error);
+  //   } finally {
+  //     setUploading(false); 
+  //     setuploadreff('');
+  //     setShowModal(false);
+
+      
+  //   }
+  // };
+
+  try {
+    const uploadRequests = formDataArray.map(formData =>
+      apiUrl.post('/api/userpost/newupload', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
-      });
-      setErrorMessage('');
-      onUpload(base64Image);
-    } catch (error) {
-      console.error('Error uploading image:', error);
-    } finally {
-      setUploading(false); // Enable the button after API response
-      setuploadreff('');
-      setShowModal(false);
-
-      
-    }
-  };
+      })
+    );
+    await Promise.all(uploadRequests);
+    setErrorMessage('');
+    onUpload(base64Images);
+  } catch (error) {
+    console.error('Error uploading images:', error);
+  } finally {
+    setUploading(false); // Enable the button after API response
+    setuploadreff('');
+    setShowModal(false);
+  }
+};
 
   useEffect(() => {
     if (uploadreff) {
@@ -80,7 +119,7 @@ const ImageUpload = ({ onUpload, title, uploadreff, setuploadreff, selectedCateg
         {errorMessage && <div style={{ color: 'red' }}>{errorMessage}</div>}
     
         <label htmlFor="file-input" className="file-label">
-          <img src={base64Image || icon} alt="Upload Icon" className='modelimage' />
+          {/* <img src={base64Image || icon} alt="Upload Icon" className='modelimage' />
           <input id="file-input" accept="image/*" type="file" onChange={handleFileChange} style={{ display: 'none' }} />
         </label>
         {loading && (
@@ -91,8 +130,30 @@ const ImageUpload = ({ onUpload, title, uploadreff, setuploadreff, selectedCateg
           </div>
         )}
 
-        {/* Commenting out old image preview */}
-        {/* {base64Image && <img src={base64Image} alt="Uploaded" className='modelimage-preview' />} */}
+       
+      </div>
+    </div> */}
+    {base64Images.length > 0 ? (
+            base64Images.map((base64, index) => (
+              <img
+                key={index}
+                src={base64}
+                alt={`Uploaded image ${index}`}
+                className='modelimage'
+              />
+            ))
+          ) : (
+            <img src={icon} alt="Upload Icon" className='modelimage' />
+          )}
+          <input id="file-input" accept="image/*" type="file" onChange={handleFileChange} style={{ display: 'none' }} multiple />
+        </label>
+        {loading && (
+          <div className="d-flex justify-content-center">
+            <div className="spinner-border" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
