@@ -58,12 +58,6 @@
   padding: 1vw;
 }
 
-.carousel-control-next-icon,
-.carousel-control-prev-icon,
-.carousel-indicators {
-  filter: invert(150%);
-}
-
 /* Responsive styles for screens less than or equal to 768px (mobile devices) */
 @media (max-width: 768px) {
   .card-custom {
