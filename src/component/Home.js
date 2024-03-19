@@ -47,9 +47,9 @@ const Searchbar = () => {
             type="button"
             onClick={() => handleSearch()}
             style={{
-              backgroundColor: 'blue',
+              backgroundColor: '#4286f4',
               color: 'white',
-              border: '2px solid white',
+              // border: '2px solid white',
               padding: '10px 40px',
               borderRadius: '25px',
               cursor: 'pointer',
