@@ -106,7 +106,7 @@
   .carousel-item img {
     width: 100%;
     height: auto;
-    object-fit: cover; /* Ensure the image covers the entire container */
+    object-fit: contain; /* Ensure the image covers the entire container */
     aspect-ratio: 1 / 1; /* Maintain a square aspect ratio */
   }
 }
