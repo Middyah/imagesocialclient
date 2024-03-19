@@ -1,7 +1,11 @@
 /* ImageGalleryPage.css */
 .headtop {
-    display: flex;
-  }
+    display:flex;
+    justify-content: space-between;
+    padding-top: 6px;
+    padding-left: 6px;
+    padding-right: 6px;
+}
   
   .card-title {
     width: 50%;
