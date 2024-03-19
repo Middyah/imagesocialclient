@@ -70,3 +70,46 @@
     border: 2px solid red;
   }
 }
+
+/* ImageGalleryPage.css222 */
+
+/* Style for the carousel */
+.carousel {
+  width: 100%;
+  max-width: 100%; 
+  height: auto;
+  overflow: hidden; 
+  margin-bottom: 20px; 
+}
+
+/* Style for carousel items */
+.carousel-item {
+  display: flex; 
+}
+
+.carousel-item img {
+  width: 100%;
+  height: auto;
+  border: 2px solid red; 
+}
+
+/* Adjust carousel indicators position */
+.carousel-indicators {
+  bottom: -25px; 
+}
+
+/* Style for card container */
+.card-container {
+  padding: 10px;
+}
+
+/* Responsive styles for screens less than or equal to 768px (mobile devices) */
+@media (max-width: 768px) {
+  .carousel-item {
+    flex-wrap: wrap; 
+  }
+
+  .carousel-item img {
+    width: 100%; 
+  }
+}
