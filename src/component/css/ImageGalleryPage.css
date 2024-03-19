@@ -53,12 +53,12 @@
   margin-bottom: 12px;
   padding: 1vw;
 }
+
 .carousel-control-next-icon,
 .carousel-control-prev-icon,
 .carousel-indicators {
   filter: invert(150%);
 }
-
 
 /* Responsive styles for screens less than or equal to 768px (mobile devices) */
 @media (max-width: 768px) {
@@ -95,9 +95,21 @@
 .carousel-item img {
   width: 100%;
   height: auto;
+  background-color: black;
+  object-fit: contain; /* Ensure the image covers the entire container */
+  aspect-ratio: 1 / 1; /* Maintain a square aspect ratio */
   border: 2px solid red; 
 }
 
+/* Responsive styles for screens less than or equal to 768px (mobile devices) */
+@media (max-width: 768px) {
+  .carousel-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* Ensure the image covers the entire container */
+    aspect-ratio: 1 / 1; /* Maintain a square aspect ratio */
+  }
+}
 /* Adjust carousel indicators position */
 .carousel-indicators {
   bottom: -25px; 
@@ -117,4 +129,6 @@
   .carousel-item img {
     width: 100%; 
   }
+
+ 
 }
