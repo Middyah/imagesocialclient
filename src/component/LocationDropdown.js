@@ -28,7 +28,7 @@ useEffect(()=>{
   // ];
 
   const countries = [
-    'Afghanistan',
+    'Afghanistan aman',
     'Albania',
     'Algeria',
     'Andorra',
@@ -234,8 +234,8 @@ let countrydata=countries.map((item,index)=>{
   }
 })
   return (
-    <div className="location-dropdown-container">
-      <label htmlFor="country" className="dropdown-label"></label>
+    <div className="location-dropdown-container" >
+      <label htmlFor="country" className="dropdown-label dropdown-content"></label>
       <MultiSelect
         options={countrydata}
         value={selectedCountry}

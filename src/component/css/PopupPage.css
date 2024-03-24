@@ -77,7 +77,7 @@
   }
   .page-links-container,
   .custom-modal-header {
-    position: absolute;
+    /* position: absolute; */
     top: 60px;
     left: -80px; /* Adjust the left distance according to your design */
     background-color: white;

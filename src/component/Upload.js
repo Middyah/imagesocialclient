@@ -214,7 +214,7 @@ const Upload = () => {
   const handleNameChange = (e) => {
     const value = e.target.value;
     // Limit input to 40 characters
-    if (value.length <= 40) {
+    if (value.length <= 20) {
       setTitle(value);
     }
   };
@@ -336,6 +336,18 @@ const Upload = () => {
   </Modal.Header>
   <Modal.Body className='modelbody' >
     <>
+    <ImageUpload
+      onUpload={() => setUploading(false)}
+      title={title}
+      selectedCategory={selectedCategory}
+      uploadreff={uploadreff}
+      setuploadreff={setuploadreff}
+      setShowModal={setShowModal}
+      selectedLocation={selectedLocation}
+      Contact={Contact}
+      Link={Link}
+      Productname={Productname}
+    />
       <input
         type="text"
         placeholder="Name"
@@ -387,18 +399,7 @@ const Upload = () => {
         />
       </>
     </>
-    <ImageUpload
-      onUpload={() => setUploading(false)}
-      title={title}
-      selectedCategory={selectedCategory}
-      uploadreff={uploadreff}
-      setuploadreff={setuploadreff}
-      setShowModal={setShowModal}
-      selectedLocation={selectedLocation}
-      Contact={Contact}
-      Link={Link}
-      Productname={Productname}
-    />
+    
     <div className='twoinput'>
       <input
         type="text"

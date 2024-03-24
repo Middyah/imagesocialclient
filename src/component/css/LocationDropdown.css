@@ -13,7 +13,10 @@
   
   .dropdown-label {
     font-size: 16px;
-    margin-right: 10px;
+    margin-left: 10px;
+  }
+  .dropdown-content{
+    text-align: left
   }
 
 /* LocationDropdown.css */
@@ -32,6 +35,14 @@
     margin-top: 10px;
     font-size: 14px;
     color: #555;
+  }
+  .location-dropdown-container {
+    text-align: left;
+  }
+  
+  /* Additional styles for the dropdown content */
+  .multi_select_drp {
+    text-align: left !important; /* Use !important to override default styles */
   }
   
   
