@@ -21,6 +21,7 @@
     border-radius:25px;
     text-decoration:none;
     padding: 5px 30px;
+    height:40px
   }
   
   .main-image,
@@ -78,7 +79,7 @@
 
 /* Style for the carousel */
 .carousel {
-  width: 100%;
+  width: 70%;
   max-width: 100%; 
   height: auto;
   overflow: hidden; 

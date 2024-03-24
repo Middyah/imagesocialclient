@@ -11,7 +11,11 @@
   /* Media query for responsiveness */
   @media (max-width: 768px) {
     .custom-modal-header {
-      font-size: 18px; /* Adjust the font size for smaller screens */
+      font-size: 18px; 
+      background-color: #ffffff;
+      color: #888;
+      padding: 15px;
+      display: flex;
     }
   }
   

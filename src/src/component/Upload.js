@@ -336,6 +336,18 @@ const Upload = () => {
   </Modal.Header>
   <Modal.Body className='modelbody' >
     <>
+    <ImageUpload
+      onUpload={() => setUploading(false)}
+      title={title}
+      selectedCategory={selectedCategory}
+      uploadreff={uploadreff}
+      setuploadreff={setuploadreff}
+      setShowModal={setShowModal}
+      selectedLocation={selectedLocation}
+      Contact={Contact}
+      Link={Link}
+      Productname={Productname}
+    />
       <input
         type="text"
         placeholder="Name"
@@ -387,18 +399,7 @@ const Upload = () => {
         />
       </>
     </>
-    <ImageUpload
-      onUpload={() => setUploading(false)}
-      title={title}
-      selectedCategory={selectedCategory}
-      uploadreff={uploadreff}
-      setuploadreff={setuploadreff}
-      setShowModal={setShowModal}
-      selectedLocation={selectedLocation}
-      Contact={Contact}
-      Link={Link}
-      Productname={Productname}
-    />
+    
     <div className='twoinput'>
       <input
         type="text"
