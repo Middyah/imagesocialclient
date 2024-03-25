@@ -7,6 +7,12 @@
 .custom-modal-header .btn-close{
     color: #fff;
 }
+
+.label {
+    display: flex;
+    gap: 10px;
+    overflow-x: scroll;
+}
   
   /* Media query for responsiveness */
   @media (max-width: 768px) {
