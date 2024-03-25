@@ -9,9 +9,9 @@
 }
 
 .label {
-    display: flex; 
-    gap: 10px;
-    overflow-x: scroll; 
+    display: flex !important; 
+    gap: 10px !important;
+    overflow-x: scroll !important; 
 }
   
   /* Media query for responsiveness */
