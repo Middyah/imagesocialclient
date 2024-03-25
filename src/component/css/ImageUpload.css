@@ -12,6 +12,8 @@ label {
     display: flex !important; 
     gap: 10px !important;
     overflow-x: scroll !important; 
+    margin-bottom: 25px;
+
 }
   
   /* Media query for responsiveness */
