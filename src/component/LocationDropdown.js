@@ -28,7 +28,7 @@ useEffect(()=>{
   // ];
 
   const countries = [
-    'Afghanistan aman',
+    'Afghanistan',
     'Albania',
     'Algeria',
     'Andorra',
