@@ -28,7 +28,7 @@ label {
     background-color: #00000071;
     height: auto;
     margin-left: 0;
-    width: 343px;
+    width: 343px !important;
 }
   
   /* Media query for responsiveness */
