@@ -55,7 +55,7 @@ const[imagecategory,setImagecategory]=useState(localStorage.getItem("categorydat
   const fetchImages = async () => {
     try {
       // alert(2)
-      let res = await apiUrl.get(`/api/userpost/getallpost?page=${page}&limit=20&category=${imagecategory?imagecategory:(category === null ? "" : category)}&&Productname=${serch?serch:(productname === null ? "": productname)}&location=${location !== null ? location : ""}&_id=${id?id:""}`)
+      let res = await apiUrl.get(`/api/userpost/getallpost?page=${page}&limit=7&category=${imagecategory?imagecategory:(category === null ? "" : category)}&&Productname=${serch?serch:(productname === null ? "": productname)}&location=${location !== null ? location : ""}&_id=${id?id:""}`)
       setIsFirstSearchDone(true);
       setImgdata(res.data.posts)
       setImages((prevData) => [...images, ...res.data.posts])
@@ -69,7 +69,7 @@ const[imagecategory,setImagecategory]=useState(localStorage.getItem("categorydat
   const fetchImages2 = async () => {
     try {
       // alert(1)
-      let res = await apiUrl.get(`/api/userpost/getallpost?page=${page}&limit=20&category=${imagecategory?imagecategory:(category === null ? "" : category)}&&Productname=${serch?serch:(productname === null ? "": productname)}&location=${location !== null ? location : ""}&_id=${id?id:""}`)
+      let res = await apiUrl.get(`/api/userpost/getallpost?page=${page}&limit=7&category=${imagecategory?imagecategory:(category === null ? "" : category)}&&Productname=${serch?serch:(productname === null ? "": productname)}&location=${location !== null ? location : ""}&_id=${id?id:""}`)
       setImgdata(res.data.posts)
       // setImages((prevData) => [...images, ...res.data.posts])
       setImages([...res.data.posts])
