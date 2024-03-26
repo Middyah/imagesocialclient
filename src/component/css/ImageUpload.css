@@ -15,6 +15,13 @@ label {
     margin-bottom: 25px;
 
 }
+
+.modelbody {
+    background-color: #00000071;
+    height: auto;
+    margin-left: 0;
+    width: 343px;
+}
   
   /* Media query for responsiveness */
   @media (max-width: 768px) {
