@@ -36,12 +36,12 @@ label {
     margin-left: 0;
 }
 
-@media screen and (max-width: 480px)
+@media screen and (max-width: 1000px)
 .modelbody {
     background-color: #00000071;
     height: auto;
     margin-left: 0;
-    width: 343px !important;
+    width: 86vw !important;
 }
   
   /* Media query for responsiveness */
