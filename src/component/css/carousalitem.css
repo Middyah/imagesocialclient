@@ -1,4 +1,4 @@
-.carouselitem {
+/* .carouselitem {
     background: #f9f9f9;
     width: 140px;
     height: 40px;
@@ -15,8 +15,14 @@
         height: 29px; /* Adjusted height for smaller screens */
         width: 80px; /* Adjusted width for smaller screens */
     }
+} */
+.carousetitem {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: -20px;
+    margin-top: 20px;
 }
-
 
 .wrapper {
     padding: 35px;
