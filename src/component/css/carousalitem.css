@@ -12,8 +12,8 @@
 
 @media screen and (max-width: 768px) {
     .carouselitem {
-        height: 29px; /* Adjusted height for smaller screens */
-        width: 80px; /* Adjusted width for smaller screens */
+        height: 29px; 
+        width: 80px; 
     }
 } */
 .carousetitem {
