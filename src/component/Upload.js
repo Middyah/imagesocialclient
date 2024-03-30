@@ -214,7 +214,7 @@ const Upload = () => {
   const handleNameChange = (e) => {
     const value = e.target.value;
     // Limit input to 40 characters
-    if (value.length <= 20) {
+    if (value.length <= 40) {
       setTitle(value);
     }
   };
