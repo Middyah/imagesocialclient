@@ -147,7 +147,7 @@ const[combineimg,setCombineimg]=useState(uniqueNumber)
               />
             ))
           ) : (
-            <img src={icon} alt="Upload Icon" className='modelimage' />
+            <img src={icon} alt="Upload Icon" className='modelimage preview-image' />
           )}
           <input id="file-input" accept="image/*" type="file" onChange={handleFileChange} style={{ display: 'none' }} multiple />
         </label>
