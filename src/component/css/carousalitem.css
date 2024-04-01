@@ -16,13 +16,34 @@
         width: 80px; 
     }
 } */
+
 .carousetitem {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    /* margin-left: -10px; */
+    padding-left: 10%;
+    padding-right: 10%;
+    /* margin-right: 0; */
+}
+
+@media screen and (min-width: 7680px) {
+    .carousel-item {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        margin-left: -10px;
+        margin-right: 0;
+    }
+}
+
+/* .carousetitem {
     align-items: center;
     display: flex;
     justify-content: center;
     margin-left: -10px;
     margin-right: -0px;
-}
+} */
 
 .wrapper {
     padding: 35px;
