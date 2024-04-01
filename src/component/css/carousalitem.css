@@ -28,7 +28,7 @@
 }
 
  @media (max-width: 768px) {
-    .carousel-item {
+    .carousetitem {
         align-items: center;
         display: flex;
         justify-content: center;
