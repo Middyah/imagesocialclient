@@ -22,7 +22,7 @@
     padding: 9px;
 }
 
-label {
+.label1{
     display: flex !important; 
     gap: 10px !important;
     overflow-x: scroll !important; 
