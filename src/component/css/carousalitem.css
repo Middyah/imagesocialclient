@@ -27,7 +27,7 @@
     /* margin-right: 0; */
 }
 
-@media screen and (min-width: 7680px) {
+ @media (max-width: 768px) {
     .carousel-item {
         align-items: center;
         display: flex;
