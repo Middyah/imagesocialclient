@@ -43,6 +43,7 @@ function App() {
         <Route path="/share" element={<Share />} />
         <Route path="/payment" element={<Payment />} />
         <Route path="/postermaking" element={<PosterMaking />} />
+        <Route path="/disclaimer" element={<Disclaimer />} />
   
       </Routes>
       <Footer /> 
