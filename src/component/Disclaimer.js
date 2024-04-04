@@ -1,5 +1,5 @@
 import React from 'react';
-import './css/ContactUs.css';
+import './css/Disclaimer.css';
 import CustomNavbar from './CustomNavbar';
 
 const Disclaimer = () => {
