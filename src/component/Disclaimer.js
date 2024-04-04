@@ -2,7 +2,7 @@ import React from 'react';
 import './css/Disclaimer.css';
 import CustomNavbar from './CustomNavbar';
 
-const ContactUs = () => {
+const Disclaimer = () => {
     return (
         <div>
             <CustomNavbar />
@@ -19,4 +19,4 @@ const ContactUs = () => {
     );
 };
 
-export default ContactUs;
+export default Disclaimer;
