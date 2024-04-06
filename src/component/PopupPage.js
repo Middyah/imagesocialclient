@@ -1,35 +1,24 @@
-import React, { useState, useEffect, useRef } from 'react';
+// PopupPage.js
+
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../component/css/PopupPage.css';
 
 const PopupPage = () => {
   const [selectedCountry, setSelectedCountry] = useState('');
   const [isBoxVisible, setIsBoxVisible] = useState(false);
-  const dropdownRef = useRef(null);
-
-  useEffect(() => {
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, []);
-
-  const handleClickOutside = (event) => {
-    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-      setIsBoxVisible(false);
-    }
-  };
 
   const handleArrowClick = () => {
     setIsBoxVisible(!isBoxVisible);
   };
 
   return (
-    <div className="location-dropdown-container" ref={dropdownRef}>
+    <div className="location-dropdown-container">
       <label
         htmlFor="country"
         className="dropdown-label"
         onClick={handleArrowClick}
+        // style={{ fontSize: '4vw', cursor: 'pointer' }} // Use viewport width for responsive font size
       >
         𓃑
       </label>
@@ -42,7 +31,7 @@ const PopupPage = () => {
             <Link to="/share" className="page-link">Share & Earn</Link>
             <Link to="/payment" className="page-link">Payment</Link>
             <Link to="/postermaking" className="page-link">Poster Making</Link>
-            <Link to="/disclaimer" className="page-link">Disclaimer</Link>
+
           </div>
         </div>
       )}

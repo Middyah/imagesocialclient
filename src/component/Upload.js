@@ -123,20 +123,7 @@ const[combineimg,setCombineimg]=useState(uniqueNumber)
         {errorMessage && <div style={{ color: 'red' }}>{errorMessage}</div>}
     
         <label htmlFor="file-input" className="file-label">
-          {/* <img src={base64Image || icon} alt="Upload Icon" className='modelimage' />
-          <input id="file-input" accept="image/*" type="file" onChange={handleFileChange} style={{ display: 'none' }} />
-        </label>
-        {loading && (
-          <div className="d-flex justify-content-center">
-            <div className="spinner-border" role="status">
-              <span className="visually-hidden">Loading...</span>
-            </div>
-          </div>
-        )}
-
-       
-      </div>
-    </div> */}
+          
     {base64Images.length > 0 ? (
             base64Images.map((base64, index) => (
               <img

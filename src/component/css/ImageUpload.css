@@ -1,57 +1,55 @@
 /* Add these styles to your CSS file */
 
 .custom-modal-header {
-    background-color: #00000071; /* Change the background color as needed */
-  }
+  background-color: #00000071; /* Change the background color as needed */
+}
 
 .custom-modal-header .btn-close{
-    color: #fff;
+  color: #fff;
 }
 
 .inputtext {
-    background-color: grey;
-    border-left-width: 0;
-    border-radius: 20px;
-    border-top-color: gray;
-    border-top-width: 0;
-    color: #fff;
-    font-size: medium;
-    height: 39px;
-    width: 100%;
-    outline: none;
-    padding: 9px;
+  background-color: grey;
+  border-left-width: 0;
+  border-radius: 20px;
+  border-top-color: gray;
+  border-top-width: 0;
+  color: #fff;
+  font-size: medium;
+  height: 39px;
+  width: 100%;
+  outline: none;
+  padding: 9px;
 }
 
 .preview-image{
-    display: flex !important; 
-    gap: 10px !important;
-    overflow-x: scroll !important; 
-    margin-bottom: 25px;
+  display: flex !important; 
+  gap: 10px !important;
+  overflow-x: scroll !important; 
+  margin-bottom: 25px;
 
 }
 
 .modelbody {
-    background-color: #00000071;
-    height: auto;
-    margin-left: 0;
+  background-color: #00000071;
+  height: auto;
+  margin-left: 0;
 }
 
-@media screen and (max-width: 1000px)
-.modelbody {
+@media screen and (max-width: 1000px){.modelbody {
+  background-color: #00000071;
+  height: auto;
+  margin-left: 0;
+  width: 86vw !important;
+}}
+
+/* Media query for responsiveness */
+@media (max-width: 768px) {
+  .custom-modal-header {
+    font-size: 18px; 
     background-color: #00000071;
-    height: auto;
-    margin-left: 0;
-    width: 86vw !important;
-}
-  
-  /* Media query for responsiveness */
-  @media (max-width: 768px) {
-    .custom-modal-header {
-      font-size: 18px; 
-      background-color: #00000071;
-      color: #888;
-      padding: 15px;
-      display: flex;
-    }
+    color: #888;
+    padding: 15px;
+    display: flex;
   }
-  
+}
