@@ -121,7 +121,7 @@ const[combineimg,setCombineimg]=useState(uniqueNumber)
       <div className="auth-inner">
         <p>Let's upload an image</p>
         {errorMessage && <div style={{ color: 'red' }}>{errorMessage}</div>}
-    
+        <div className="file-wrapper">
         <label htmlFor="file-input" className="file-label">
           
     {base64Images.length > 0 ? (
@@ -138,6 +138,7 @@ const[combineimg,setCombineimg]=useState(uniqueNumber)
           )}
           <input id="file-input" accept="image/*" type="file" onChange={handleFileChange} style={{ display: 'none' }} multiple />
         </label>
+        </div>
         {loading && (
           <div className="d-flex justify-content-center">
             <div className="spinner-border" role="status">
