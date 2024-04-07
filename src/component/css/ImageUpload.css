@@ -8,6 +8,21 @@
     color: #fff;
 }
 
+.inputtext{
+    margin-bottom:20px;
+}
+
+@media screen and (max-width: 480px)
+.input, .inputtext {
+    margin-bottom: 20px !important;
+    background-color: grey;
+    border-radius: 20px;
+    color: #fff;
+    font-size: medium;
+    height: 39px;
+    margin-bottom: 6px;
+}
+
 .file-label {
     display: flex;
     overflow-x: scroll;
