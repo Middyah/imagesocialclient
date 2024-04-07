@@ -4,8 +4,9 @@
   height: 200px;
 }
 
-.header{
-  height:200px!important;
+.header {
+    background-color: #fff;
+    height: 200px;
 }
 
 .navbar-content {
