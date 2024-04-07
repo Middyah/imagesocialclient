@@ -46,6 +46,10 @@
     padding: 9px;
 }
 
+.input{
+    margin-bottom:20px;
+}
+
 .preview-image{
     display: flex !important; 
     gap: 10px !important;
