@@ -4,6 +4,10 @@
   height: 200px;
 }
 
+.header{
+  height:200px;
+}
+
 .navbar-content {
   display: flex;
   justify-content: space-between;
