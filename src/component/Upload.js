@@ -23,6 +23,14 @@ const ImageUpload = ({ onUpload, title, uploadreff, setuploadreff, selectedCateg
   // };
   const handleFileChange = async (e) => {
     const files = Array.from(e.target.files);
+    if (files.length > 10) {
+      setErrorMessage('You can upload a maximum of 10 images.');
+      setSelectedFiles([]); // Clear the selected files array
+    setBase64Images([]); // Clear the base64 images array
+    return;
+    } else {
+      setErrorMessage(''); // Clear the error message
+    }
     const base64Array = await Promise.all(files.map(file => convertToBase64(file)));
     setSelectedFiles(files);
     setBase64Images(base64Array);
