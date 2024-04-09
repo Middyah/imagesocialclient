@@ -31,6 +31,8 @@ const PopupPage = () => {
             <Link to="/share" className="page-link">Share & Earn</Link>
             <Link to="/payment" className="page-link">Payment</Link>
             <Link to="/postermaking" className="page-link">Poster Making</Link>
+            <Link to="/disclaimer" className="page-link">Disclaimer</Link>
+
 
           </div>
         </div>
