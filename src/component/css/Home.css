@@ -1,0 +1,44 @@
+/* Your existing CSS */
+
+.search-form {
+  display: flex;
+  align-items: center;
+}
+
+.logo_main {
+  height: 150px;
+}
+
+.searchfield {
+  width: 50%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+}
+
+
+.search-button {
+  padding: 20px;
+  transition: background-color 0.3s ease; /* Add a transition for a smooth effect */
+}
+
+/* Add hover animation */
+.search-button:hover {
+  background-color: #4caf50; /* Change to the desired hover background color */
+  color: #fff; /* Change to the desired hover text color */
+}
+
+@media (max-width: 600px) {
+  .logo_main {
+    height: 70px;
+  }
+
+  .search-form {
+    flex-direction: row; /* Change the flex direction to column for mobile */
+    align-items: stretch; /* Ensure items stretch to full width */
+  }
+
+  .searchfield {
+    width: 80%;
+  }
+}

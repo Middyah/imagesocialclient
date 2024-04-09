@@ -1,0 +1,91 @@
+/* PopupPage.css */
+
+.location-dropdown-container {
+  position: relative;
+}
+
+.page-links-container {
+  position: absolute;
+  top: 80px;
+  left: -200px; /* Adjust the left distance according to your design */
+  background-color: white;
+  border: 1px solid #ccc;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  z-index: 1;
+  padding: 10px;
+}
+.custom-modal-header {
+  background-color: #333; /* Replace with your desired background color */
+  border-bottom: 1px solid #ccc;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px 10px 0 0;
+  padding: 10px;
+  color: #333; /* Replace with your desired text color */
+}
+
+.page-links-box {
+  padding: 20px;
+}
+
+.page-link {
+  display: flex;
+  font-size: 2vw;
+  padding: 10px;
+  color: #333;
+  text-decoration: none;
+  line-height: 3;
+  transition: background-color 0.3s ease;
+}
+
+/* .page-link:hover {
+  background-color: #f0f0f0;
+} */
+
+.dropdown-label {
+  position: relative;
+  cursor: pointer;;
+  font-size: 3vw;
+}
+
+/* PopupPage.css */
+
+/* Your existing styles... */
+
+.page-link:hover {
+  background-color: #f0f0f0; /* Change to the desired hover background color */
+  color: #007bff; /* Change to the desired hover text color */
+}
+
+/* Your existing styles... */
+
+
+@media (max-width: 600px) {
+  /* Media query for phones */
+  .dropdown-label {
+    font-size: 7vw;
+    text-align: right;
+  }
+  
+    .location-dropdown-container{
+    text-align: right;
+  }
+  .custom-modal-header .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+  .page-links-container,
+  .custom-modal-header {
+    /* position: absolute; */
+    top: 60px;
+    left: -80px; /* Adjust the left distance according to your design */
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    z-index: 1;
+    padding: 10px;
+  }
+  
+}
