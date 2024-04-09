@@ -180,7 +180,8 @@ console.log(result,"combine");
                 <div className="headtop">
                   <h5 className="card-title">{item.post_title}</h5>
                   {item.Link && (
-                    <a className="link" href={item.Link} target="_blank" rel="noopener noreferrer">
+                    // <a className="link" href={item.Link} target="_blank" rel="noopener noreferrer">
+                    <a className="link" href={item.Link.startsWith('http') ? item.Link : `https://${item.Link}`} target="_blank" rel="noopener noreferrer">
                       Visit
                     </a>
                   )}
