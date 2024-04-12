@@ -19,6 +19,7 @@ const ImageGalleryPage = ({serch}) => {
   let productname = searchParams.get('Productname');
   let post_title = searchParams.get('post_title')
   let id = searchParams.get('id')
+  let combineimg = searchParams.get('combineimg')
   console.log(post_title, category, "jfghfghg");
   const [page, setPage] = useState(1);
   const [images, setImages] = useState([]);
@@ -55,7 +56,7 @@ const[imagecategory,setImagecategory]=useState(localStorage.getItem("categorydat
   const fetchImages = async () => {
     try {
       // alert(2)
-      let res = await apiUrl.get(`/api/userpost/getallpost?page=${page}&limit=20&category=${imagecategory?imagecategory:(category === null ? "" : category)}&&Productname=${serch?serch:(productname === null ? "": productname)}&location=${location !== null ? location : ""}&_id=${id?id:""}`)
+      let res = await apiUrl.get(`/api/userpost/getallpost?page=${page}&limit=20&category=${imagecategory?imagecategory:(category === null ? "" : category)}&Productname=${serch?serch:(productname === null ? "": productname)}&location=${location !== null ? location : ""}&_id=${id?id:""}&combineimg=${combineimg}`)
       setIsFirstSearchDone(true);
       setImgdata(res.data.posts)
       setImages((prevData) => [...images, ...res.data.posts])
@@ -69,7 +70,7 @@ const[imagecategory,setImagecategory]=useState(localStorage.getItem("categorydat
   const fetchImages2 = async () => {
     try {
       // alert(1)
-      let res = await apiUrl.get(`/api/userpost/getallpost?page=${page}&limit=20&category=${imagecategory?imagecategory:(category === null ? "" : category)}&&Productname=${serch?serch:(productname === null ? "": productname)}&location=${location !== null ? location : ""}&_id=${id?id:""}`)
+      let res = await apiUrl.get(`/api/userpost/getallpost?page=${page}&limit=20&category=${imagecategory?imagecategory:(category === null ? "" : category)}&&Productname=${serch?serch:(productname === null ? "": productname)}&location=${location !== null ? location : ""}&_id=${id?id:""}&combineimg=${combineimg}`)
       setImgdata(res.data.posts)
       // setImages((prevData) => [...images, ...res.data.posts])
       setImages([...res.data.posts])
@@ -197,7 +198,7 @@ console.log(result,"combine");
                 onLoad={handleImageLoad}
               />
               <Card.Body style={{ padding: 0 }}>
-                <Imagebutton id={item._id} Contact={item.Contactnumber} />
+                <Imagebutton id={item.combineimg} Contact={item.Contactnumber} />
               </Card.Body>
             </Card>
             ))}

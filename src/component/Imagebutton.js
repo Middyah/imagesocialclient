@@ -65,7 +65,7 @@ export default function Imagebutton({ id, Contact }) {
     try {
       await navigator.share({
         title: 'Shared Title',
-        url: `https://middyah.com/mainarea?id=${id}`,
+        url: `https://middyah.com/mainarea?combineimg=${id}&category=0`,
       });
       console.log('Shared successfully');
       const newShareCount = shareCount + 1;
