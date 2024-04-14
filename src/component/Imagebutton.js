@@ -72,6 +72,7 @@ export default function Imagebutton({ id, Contact }) {
       setShareCount(newShareCount);
       // Store updated share count in localStorage
       localStorage.setItem(`shareCount_${id}`, newShareCount);
+      await apiUrl.post(`/api/admin/post/share/${id}`);
     } catch (error) {
       console.error('Error sharing:', error);
     }
