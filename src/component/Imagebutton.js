@@ -5,7 +5,7 @@ import call from "./image/call.png";
 import share from "./image/share.png";
 import apiUrl from '../ApiAxios';
 
-export default function Imagebutton({ id, Contact }) {
+export default function Imagebutton({ id, Contact,combineimg }) {
   let likeuserid = localStorage.getItem("likeuserid");
   const [reff, setReff] = useState("");
   const [data, setData] = useState({});
@@ -65,7 +65,7 @@ export default function Imagebutton({ id, Contact }) {
     try {
       await navigator.share({
         title: 'Shared Title',
-        url: `https://middyah.com/mainarea?combineimg=${id}&category=0`,
+        url: `https://middyah.com/mainarea?combineimg=${combineimg}&category=0`,
       });
       console.log('Shared successfully');
       const newShareCount = shareCount + 1;

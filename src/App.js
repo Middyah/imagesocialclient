@@ -25,14 +25,14 @@ function App() {
   }
   return (
     <div>
-      {/* Define routes using React Router */}
-      {/* <NavbarPost/> */}
-      {/* {location.pathname === '/mainarea' && <NavbarPost />} */}
-      {(location.pathname === '/mainarea' || location.pathname === '/') && <NavbarPost onSearch2={onSearch2}/>}
-
+  
+      {/* {(location.pathname === '/mainarea' || location.pathname === '/') && <NavbarPost onSearch2={onSearch2}/>} */}
+      {(location.pathname === '/mainarea' || location.pathname === '/' || location.pathname === '/home' ) && <NavbarPost onSearch2={onSearch2}/>}
       <Routes>
-        <Route path="/" element={<Home />} />
-        {/* <Route path="/mainarea" element={<MainArea />} /> */}
+        {/* <Route path="/" element={<Home />} /> */}
+        <Route path="/home" element={<Home />} />
+        <Route path="/" element={<ImageGalleryPage category={localStorage.getItem('categorydata')} serch={serch} />}/>
+
         <Route
   // path="/mainarea"
   path="/mainarea"

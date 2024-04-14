@@ -51,7 +51,7 @@ const[imagecategory,setImagecategory]=useState(localStorage.getItem("categorydat
     setImagecategory(localStorage.getItem("categorydata"))
   },1000)
   
-  console.log(imagecategory,"imagecategory")
+
 
   const fetchImages = async () => {
     try {
@@ -199,7 +199,7 @@ console.log(result,"combine");
                 onLoad={handleImageLoad}
               />
               <Card.Body style={{ padding: 0 }}>
-                <Imagebutton id={item.combineimg} Contact={item.Contactnumber} />
+                <Imagebutton id={item._id} combineimg={item.combineimg} Contact={item.Contactnumber} />
               </Card.Body>
             </Card>
             ))}
@@ -240,7 +240,7 @@ console.log(result,"combine");
       </Carousel>
 
       <Card.Body style={{ padding: 0 }}>
-        <Imagebutton id={cardItem._id} Contact={cardItem.Contactnumber} />
+        <Imagebutton id={cardItem._id} combineimg={cardItem.combineimg} Contact={cardItem.Contactnumber} />
       </Card.Body>
     </Card>
   ))}

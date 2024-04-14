@@ -21,7 +21,8 @@ const Footer = () => {
             <div className='footerele'>
               {/* <ImageUpload /> */}
               <Upload/>
-              <Link to='./'onClick={handleSearchIconClick}>🔍</Link>
+              {/* <Link to='./'onClick={handleSearchIconClick}>🔍</Link> */}
+              <Link to='./home'onClick={handleSearchIconClick}>🔍</Link>
             </div>
           </div>
         </div>

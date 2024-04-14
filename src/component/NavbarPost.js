@@ -19,14 +19,14 @@ const onSearch=(a) =>{
   return (
     <>
 
-    <nav className={pathname==="/"?"":"header"}> 
-      <div className={pathname==="/"?"custom-navbar-content":"header-content"}> 
-        <div className={pathname==="/"?"custom-left-component":"left-component"}>  
+    <nav className={pathname==="/home"?"":"header"}> 
+      <div className={pathname==="/home"?"custom-navbar-content":"header-content"}> 
+        <div className={pathname==="/home"?"custom-left-component":"left-component"}>  
         {/* {pathname==="/"? <LocationDropdown />:<LocationDropdown2/>} */}
         <LocationDropdown/>
         </div>
 
-{pathname!=="/"&&(
+{pathname!=="/home"&&(
   <div className="center-component">
           <img
             className='logo_main'
@@ -38,11 +38,11 @@ const onSearch=(a) =>{
 
 )}
         
-        <div className={pathname==="/"?"custom-right-component":"right-component"}>
+        <div className={pathname==="/home"?"custom-right-component":"right-component"}>
           <PopupPage />
         </div>
 
-        {pathname!=="/"&&(
+        {pathname!=="/home"&&(
         <div className="additional-component">
           <Bar onSearch={onSearch}/>
         </div>
