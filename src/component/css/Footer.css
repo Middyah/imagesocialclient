@@ -23,15 +23,6 @@
   .footer-links {
   
   }
-
-
-@media screen and (max-width: 480px)
-.footerele {
-    align-items: center;
-    display: flex;
-    gap: 100px;
-    margin-right: 100px;
-}
   
   .footer a {
     color: #000000;
@@ -46,13 +37,14 @@
     align-items: center;
     gap: 190px;
   }
-/*   @media screen and (max-width: 480px) {
+  @media screen and (max-width: 480px) {
   
     .footerele{
       display: flex;
       align-items: center;
       gap: 100px;
-    } */
+      margin-right:100px;
+    }
     .center-container{
       padding-left: 102px;
     }
