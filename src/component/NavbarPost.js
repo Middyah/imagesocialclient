@@ -23,7 +23,7 @@ const onSearch=(a) =>{
       <div className={pathname==="/home"?"custom-navbar-content":"header-content"}> 
         <div className={pathname==="/home"?"custom-left-component":"left-component"}>  
         {/* {pathname==="/"? <LocationDropdown />:<LocationDropdown2/>} */}
-        <LocationDropdown/>
+        {/*<LocationDropdown/>*/}
         </div>
 
 {pathname!=="/home"&&(
