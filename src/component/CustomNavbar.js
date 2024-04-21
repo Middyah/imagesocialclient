@@ -8,7 +8,7 @@ const Navbar = () => {
   return (
     <div className="custom-navbar-content">
       <div className="custom-left-component">
-        <CustomLocationDropdown />
+       {/* <CustomLocationDropdown /> */}
       </div>
       <div className="center-component">
           <img
