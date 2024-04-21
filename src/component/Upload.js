@@ -51,7 +51,7 @@ const ImageUpload = ({ onUpload, title, uploadreff, setuploadreff, selectedCateg
     const uniqueNumber = currentDate.getTime() + currentDate.getDay() + currentDate.getMinutes();
 const[combineimg,setCombineimg]=useState(uniqueNumber)
   const uploadImage = async () => {
-    if (!selectedFiles.length || !selectedCategory || !selectedLocation || !Productname) {
+    if (!selectedFiles.length || !selectedCategory || !Productname) {
       setErrorMessage('Please fill all mandatory fields.');
       return;
     }
