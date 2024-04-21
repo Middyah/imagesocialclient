@@ -247,7 +247,7 @@ const Upload = () => {
                   style={{ marginLeft: '11px' }}
                   className='inputtext'
                 />
-              {/*  <select
+                <select
                   name="location"
                   id="location"
                   value={selectedLocation}
@@ -261,7 +261,7 @@ const Upload = () => {
                       {option}
                     </option>
                   ))}
-                </select>*/}
+                </select>
 
                 <select
                   name="category"
@@ -353,7 +353,7 @@ const Upload = () => {
         style={{ marginLeft: '11px' }}
         className='inputtext'
       />
-      <select
+      {/* <select
         name="location"
         id="location"
         value={selectedLocation}
@@ -367,7 +367,7 @@ const Upload = () => {
             {option}
           </option>
         ))}
-      </select>
+      </select> */}
 
       <select
         name="category"
