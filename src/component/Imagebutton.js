@@ -99,7 +99,9 @@ export default function Imagebutton({ id, Contact,combineimg }) {
     <>
       <div className='allicons'>
         {userlike ? (
-          <span><img src={likeimg} style={{ width: "29px", margin: "24px" }} /> <span>{totallike}</span></span>
+          <span><img src={likeimg} style={{ width: "29px", margin: "24px" }} /> <span>
+ {/* {totallike} */}
+</span></span>
         ) : (
           <span onClick={postLike}><img src={dislike} style={{ width: "29px", margin: "24px" }} /> <span>
         {/* {totallike} */}
