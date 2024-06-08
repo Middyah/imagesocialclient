@@ -101,7 +101,9 @@ export default function Imagebutton({ id, Contact,combineimg }) {
         {userlike ? (
           <span><img src={likeimg} style={{ width: "29px", margin: "24px" }} /> <span>{totallike}</span></span>
         ) : (
-          <span onClick={postLike}><img src={dislike} style={{ width: "29px", margin: "24px" }} /> <span>{totallike}</span></span>
+          <span onClick={postLike}><img src={dislike} style={{ width: "29px", margin: "24px" }} /> <span>
+        {/* {totallike} */}
+</span></span>
         )}
 
         {Contact && (
@@ -109,7 +111,9 @@ export default function Imagebutton({ id, Contact,combineimg }) {
         )}
 
         <img src={share} style={{ width: "29px", margin: "24px" }} onClick={handleShare} />
-        <span>Shares: {shareCount}</span> {/* Display share count */}
+        <span>Shares: 
+ {/* {shareCount} */}
+</span> {/* Display share count */}
       </div>
     </>
   );
